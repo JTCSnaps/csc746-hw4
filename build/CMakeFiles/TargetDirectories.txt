@@ -1,0 +1,7 @@
+/workspace/build/CMakeFiles/benchmark.dir
+/workspace/build/CMakeFiles/benchmark-basic-omp.dir
+/workspace/build/CMakeFiles/benchmark-blas.dir
+/workspace/build/CMakeFiles/benchmark-blocked-omp.dir
+/workspace/build/CMakeFiles/bench-blocked-omp.dir
+/workspace/build/CMakeFiles/edit_cache.dir
+/workspace/build/CMakeFiles/rebuild_cache.dir
