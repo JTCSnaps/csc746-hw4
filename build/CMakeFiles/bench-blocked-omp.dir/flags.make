@@ -4,7 +4,7 @@
 # compile CXX with /opt/cray/pe/craype/2.7.36/bin/CC
 CXX_DEFINES = -DBLOCKED -DLIKWID_PERFMON
 
-CXX_INCLUDES = -I/global/cfs/cdirs/m3930/likwid/5.4.1/include
+CXX_INCLUDES = 
 
 CXX_FLAGS = -O3 -DNDEBUG -fopenmp
 
