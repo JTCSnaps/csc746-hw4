@@ -1,41 +1,26 @@
-CMakeFiles/benchmark-blas.dir/dgemm-blas.cpp.o: /workspace/dgemm-blas.cpp \
- /usr/include/stdc-predef.h /usr/include/aarch64-linux-gnu/cblas.h \
- /usr/lib/gcc/aarch64-linux-gnu/11/include/stddef.h \
- /usr/include/aarch64-linux-gnu/openblas_config.h \
- /usr/lib/gcc/aarch64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
- /usr/include/aarch64-linux-gnu/bits/libc-header-start.h \
+CMakeFiles/benchmark-blas.dir/dgemm-blas.cpp.o: \
+ /global/homes/j/jcordano/csc746-hw4/dgemm-blas.cpp \
+ /usr/include/stdc-predef.h \
+ /opt/cray/pe/libsci/26.03.0/GNU/12/x86_64/include/cblas.h \
+ /usr/lib64/gcc/x86_64-suse-linux/14/include/stddef.h \
+ /usr/lib64/gcc/x86_64-suse-linux/14/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
- /usr/include/aarch64-linux-gnu/bits/wordsize.h \
- /usr/include/aarch64-linux-gnu/bits/timesize.h \
- /usr/include/aarch64-linux-gnu/sys/cdefs.h \
- /usr/include/aarch64-linux-gnu/bits/long-double.h \
- /usr/include/aarch64-linux-gnu/gnu/stubs.h \
- /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h \
- /usr/include/aarch64-linux-gnu/bits/types.h \
- /usr/include/aarch64-linux-gnu/bits/typesizes.h \
- /usr/include/aarch64-linux-gnu/bits/time64.h \
- /usr/include/aarch64-linux-gnu/bits/wchar.h \
- /usr/include/aarch64-linux-gnu/bits/stdint-intn.h \
- /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h /usr/include/stdio.h \
- /usr/lib/gcc/aarch64-linux-gnu/11/include/stdarg.h \
- /usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h \
- /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h \
- /usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h \
- /usr/include/aarch64-linux-gnu/bits/types/__FILE.h \
- /usr/include/aarch64-linux-gnu/bits/types/FILE.h \
- /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/aarch64-linux-gnu/bits/types/cookie_io_functions_t.h \
- /usr/include/aarch64-linux-gnu/bits/stdio_lim.h \
- /usr/include/aarch64-linux-gnu/bits/floatn.h \
- /usr/include/aarch64-linux-gnu/bits/floatn-common.h \
- /usr/include/aarch64-linux-gnu/bits/stdio.h \
- /usr/include/aarch64-linux-gnu/bits/stdio2.h /usr/include/sched.h \
- /usr/include/aarch64-linux-gnu/bits/types/time_t.h \
- /usr/include/aarch64-linux-gnu/bits/types/struct_timespec.h \
- /usr/include/aarch64-linux-gnu/bits/endian.h \
- /usr/include/aarch64-linux-gnu/bits/endianness.h \
- /usr/include/aarch64-linux-gnu/bits/sched.h \
- /usr/include/aarch64-linux-gnu/bits/types/struct_sched_param.h \
- /usr/include/aarch64-linux-gnu/bits/cpu-set.h \
- /usr/lib/gcc/aarch64-linux-gnu/11/include/omp.h \
- /workspace/likwid-stuff.h
+ /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/bits/time64.h /usr/include/bits/wchar.h \
+ /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
+ /usr/include/inttypes.h \
+ /opt/cray/pe/libsci/26.03.0/GNU/12/x86_64/include/cblas_mangling.h \
+ /usr/lib64/gcc/x86_64-suse-linux/14/include/omp.h \
+ /global/homes/j/jcordano/csc746-hw4/likwid-stuff.h \
+ /global/cfs/cdirs/m3930/likwid/5.4.1/include/likwid.h \
+ /usr/include/errno.h /usr/include/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/bits/types/error_t.h /usr/include/string.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/strings.h \
+ /global/cfs/cdirs/m3930/likwid/5.4.1/include/likwid-marker.h

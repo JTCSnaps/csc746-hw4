@@ -55,8 +55,8 @@ for N in 128 512 2048 # loop over problem sizes
 #   for B in 4 16  # uncomment these two lines
 #      do            # to also iterate over block sizes for the blocked version
 
-      for t in 1 4 16 64  # loop over concurrency level
-#      for t in 1  # if running the blas version, uncomment this line and comment out the previous line looping over t in 1 4 16 64
+#     for t in 1 4 16 64  # loop over concurrency level
+      for t in 1  # if running the blas version, uncomment this line and comment out the previous line looping over t in 1 4 16 64
          do
          let maxcore=$t-1
 

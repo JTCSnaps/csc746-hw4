@@ -1,1 +1,1 @@
-/usr/bin/c++ -O3 -DNDEBUG -fopenmp CMakeFiles/benchmark-basic-omp.dir/dgemm-basic-omp.cpp.o CMakeFiles/benchmark.dir/benchmark.cpp.o -o benchmark-basic-omp  /usr/lib/aarch64-linux-gnu/libopenblas.so 
+/opt/cray/pe/craype/2.7.36/bin/CC -O3 -DNDEBUG -fopenmp "CMakeFiles/benchmark-basic-omp.dir/dgemm-basic-omp.cpp.o" CMakeFiles/benchmark.dir/benchmark.cpp.o -o benchmark-basic-omp  -Wl,-rpath,/global/cfs/cdirs/m3930/likwid/5.4.1/lib /global/cfs/cdirs/m3930/likwid/5.4.1/lib/liblikwid.so 

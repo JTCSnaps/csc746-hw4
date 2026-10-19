@@ -1,0 +1,123 @@
+likwid-perfctr -m -g FLOPS_DP -C N:0-0 ./benchmark-blas -N 128
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+ Elapsed time is : 0.0006 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.000386 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+------------+
+|           Event           | Counter | HWThread 0 |
++---------------------------+---------+------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |    1523038 |
+|       MAX_CPU_CLOCK       |  FIXC2  |    1147629 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  |    1127413 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |     585269 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  |    4210698 |
+|           MERGE           |   PMC3  |          0 |
++---------------------------+---------+------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.0004 |
+| Runtime unhalted [s] |     0.0006 |
+|      Clock [MHz]     |  3245.1021 |
+|          CPI         |     0.5191 |
+|     DP [MFLOP/s]     | 10902.7650 |
++----------------------+------------+
+
+likwid-perfctr -m -g FLOPS_DP -C N:0-0 ./benchmark-blas -N 512
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+ Elapsed time is : 0.0059 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.005743 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+------------+
+|           Event           | Counter | HWThread 0 |
++---------------------------+---------+------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |   20469120 |
+|       MAX_CPU_CLOCK       |  FIXC2  |   14234520 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  |   63894780 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |   18584550 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  |  269221900 |
+|           MERGE           |   PMC3  |          0 |
++---------------------------+---------+------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.0057 |
+| Runtime unhalted [s] |     0.0084 |
+|      Clock [MHz]     |  3516.2419 |
+|          CPI         |     0.2909 |
+|     DP [MFLOP/s]     | 46876.9306 |
++----------------------+------------+
+
+likwid-perfctr -m -g FLOPS_DP -C N:0-0 ./benchmark-blas -N 2048
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Reference dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+ Elapsed time is : 0.3324 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: FLOPS_DP
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.332139 |
+|     call count    |          1 |
++-------------------+------------+
+
++---------------------------+---------+-------------+
+|           Event           | Counter |  HWThread 0 |
++---------------------------+---------+-------------+
+|      ACTUAL_CPU_CLOCK     |  FIXC1  |  1165055000 |
+|       MAX_CPU_CLOCK       |  FIXC2  |   812438600 |
+|    RETIRED_INSTRUCTIONS   |   PMC0  |  4041863000 |
+|    CPU_CLOCKS_UNHALTED    |   PMC1  |  1161149000 |
+| RETIRED_SSE_AVX_FLOPS_ALL |   PMC2  | 17226010000 |
+|           MERGE           |   PMC3  |           0 |
++---------------------------+---------+-------------+
+
++----------------------+------------+
+|        Metric        | HWThread 0 |
++----------------------+------------+
+|  Runtime (RDTSC) [s] |     0.3321 |
+| Runtime unhalted [s] |     0.4765 |
+|      Clock [MHz]     |  3506.3718 |
+|          CPI         |     0.2873 |
+|     DP [MFLOP/s]     | 51863.9207 |
++----------------------+------------+
+

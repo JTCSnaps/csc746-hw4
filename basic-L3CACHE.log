@@ -1,0 +1,1830 @@
+likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-basic-omp -N 128
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+ Elapsed time is : 0.0028 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.002684 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |   10722530 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |    8766316 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |       6721 |
+|    L3_ACCESS_MISS    |  CPMC1  |       3709 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.0027 |
+|         CPI         |          0 |
+|   L3 request rate   |     0.0006 |
+|     L3 miss rate    |     0.0003 |
+|    L3 miss ratio    |     0.5519 |
++---------------------+------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-3 ./benchmark-basic-omp -N 128
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 4 total threads. 
+Hello world, I'm thread 2 out of 4 total threads. 
+Hello world, I'm thread 3 out of 4 total threads. 
+Hello world, I'm thread 1 out of 4 total threads. 
+Working on problem size N=128 
+ Elapsed time is : 0.0008 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+------------+------------+------------+
+|    Region Info    | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 |
++-------------------+------------+------------+------------+------------+
+| RDTSC Runtime [s] |   0.000702 |   0.000735 |   0.000735 |   0.000735 |
+|     call count    |          1 |          1 |          1 |          1 |
++-------------------+------------+------------+------------+------------+
+
++----------------------+---------+------------+------------+------------+------------+
+|         Event        | Counter | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 |
++----------------------+---------+------------+------------+------------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |    2682730 |    2691519 |    2693182 |    2693219 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |    2208845 |    2315408 |    2314861 |    2315123 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |      12682 |          0 |          0 |          0 |
+|    L3_ACCESS_MISS    |  CPMC1  |       6782 |          0 |          0 |          0 |
++----------------------+---------+------------+------------+------------+------------+
+
++---------------------------+---------+----------+---------+---------+--------------+
+|           Event           | Counter |    Sum   |   Min   |   Max   |      Avg     |
++---------------------------+---------+----------+---------+---------+--------------+
+| RETIRED_INSTRUCTIONS STAT |   PMC0  | 10760650 | 2682730 | 2693219 | 2.690162e+06 |
+|  CPU_CLOCKS_UNHALTED STAT |   PMC1  |  9154237 | 2208845 | 2315408 | 2.288559e+06 |
+|  L3_ACCESS_ALL_TYPES STAT |  CPMC0  |    12682 |       0 |   12682 |    3170.5000 |
+|    L3_ACCESS_MISS STAT    |  CPMC1  |     6782 |       0 |    6782 |    1695.5000 |
++---------------------------+---------+----------+---------+---------+--------------+
+
++---------------------+------------+------------+------------+------------+
+|        Metric       | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 |
++---------------------+------------+------------+------------+------------+
+| Runtime (RDTSC) [s] |     0.0007 |     0.0007 |     0.0007 |     0.0007 |
+|         CPI         |          0 |          0 |          0 |          0 |
+|   L3 request rate   |     0.0047 |          0 |          0 |          0 |
+|     L3 miss rate    |     0.0025 |          0 |          0 |          0 |
+|    L3 miss ratio    |     0.5348 |          0 |          0 |          0 |
++---------------------+------------+------------+------------+------------+
+
++--------------------------+--------+--------+--------+--------+
+|          Metric          |   Sum  |   Min  |   Max  |   Avg  |
++--------------------------+--------+--------+--------+--------+
+| Runtime (RDTSC) [s] STAT | 0.0028 | 0.0007 | 0.0007 | 0.0007 |
+|         CPI STAT         |      0 |      0 |      0 |      0 |
+|   L3 request rate STAT   | 0.0047 |      0 | 0.0047 | 0.0012 |
+|     L3 miss rate STAT    | 0.0025 |      0 | 0.0025 | 0.0006 |
+|    L3 miss ratio STAT    | 0.5348 |      0 | 0.5348 | 0.1337 |
++--------------------------+--------+--------+--------+--------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-15 ./benchmark-basic-omp -N 128
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 16 total threads. 
+Hello world, I'm thread 2 out of 16 total threads. 
+Hello world, I'm thread 3 out of 16 total threads. 
+Hello world, I'm thread 1 out of 16 total threads. 
+Hello world, I'm thread 4 out of 16 total threads. 
+Hello world, I'm thread 6 out of 16 total threads. 
+Hello world, I'm thread 5 out of 16 total threads. 
+Hello world, I'm thread 9 out of 16 total threads. 
+Hello world, I'm thread 12 out of 16 total threads. 
+Hello world, I'm thread 13 out of 16 total threads. 
+Hello world, I'm thread 10 out of 16 total threads. 
+Hello world, I'm thread 7 out of 16 total threads. 
+Hello world, I'm thread 11 out of 16 total threads. 
+Hello world, I'm thread 8 out of 16 total threads. 
+Hello world, I'm thread 15 out of 16 total threads. 
+Hello world, I'm thread 14 out of 16 total threads. 
+Working on problem size N=128 
+ Elapsed time is : 0.0004 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|    Region Info    | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RDTSC Runtime [s] |   0.000206 |   0.000243 |   0.000243 |   0.000243 |   0.000250 |   0.000244 |   0.000250 |   0.000243 |   0.000218 |   0.000253 |    0.000251 |    0.000251 |    0.000255 |    0.000255 |    0.000255 |    0.000251 |
+|     call count    |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |           1 |           1 |           1 |           1 |           1 |           1 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|         Event        | Counter | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |     674019 |     681113 |     681577 |     680186 |     686712 |     681408 |     686415 |     680565 |     683605 |     690068 |      689769 |      689834 |      694388 |      694411 |      694463 |      689968 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |     613291 |     664649 |     661140 |     664834 |     714352 |     665810 |     717336 |     664599 |     667898 |     752798 |      748109 |      748555 |      813201 |      812045 |      811273 |      749110 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |      19006 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |      17672 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3_ACCESS_MISS    |  CPMC1  |       9869 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |       9284 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++---------------------------+---------+----------+--------+--------+-------------+
+|           Event           | Counter |    Sum   |   Min  |   Max  |     Avg     |
++---------------------------+---------+----------+--------+--------+-------------+
+| RETIRED_INSTRUCTIONS STAT |   PMC0  | 10978501 | 674019 | 694463 | 686156.3125 |
+|  CPU_CLOCKS_UNHALTED STAT |   PMC1  | 11469000 | 613291 | 813201 | 716812.5000 |
+|  L3_ACCESS_ALL_TYPES STAT |  CPMC0  |    36678 |      0 |  19006 |   2292.3750 |
+|    L3_ACCESS_MISS STAT    |  CPMC1  |    19153 |      0 |   9869 |   1197.0625 |
++---------------------------+---------+----------+--------+--------+-------------+
+
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|        Metric       | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| Runtime (RDTSC) [s] |     0.0002 |     0.0002 |     0.0002 |     0.0002 |     0.0002 |     0.0002 |     0.0003 |     0.0002 |     0.0002 |     0.0003 |      0.0003 |      0.0003 |      0.0003 |      0.0003 |      0.0003 |      0.0003 |
+|         CPI         |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|   L3 request rate   |     0.0282 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0259 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|     L3 miss rate    |     0.0146 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0136 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3 miss ratio    |     0.5193 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.5254 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++--------------------------+--------+--------+--------+--------+
+|          Metric          |   Sum  |   Min  |   Max  |   Avg  |
++--------------------------+--------+--------+--------+--------+
+| Runtime (RDTSC) [s] STAT | 0.0040 | 0.0002 | 0.0003 | 0.0003 |
+|         CPI STAT         |      0 |      0 |      0 |      0 |
+|   L3 request rate STAT   | 0.0541 |      0 | 0.0282 | 0.0034 |
+|     L3 miss rate STAT    | 0.0282 |      0 | 0.0146 | 0.0018 |
+|    L3 miss ratio STAT    | 1.0447 |      0 | 0.5254 | 0.0653 |
++--------------------------+--------+--------+--------+--------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-63 ./benchmark-basic-omp -N 128
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 64 total threads. 
+Hello world, I'm thread 6 out of 64 total threads. 
+Hello world, I'm thread 7 out of 64 total threads. 
+Hello world, I'm thread 4 out of 64 total threads. 
+Hello world, I'm thread 2 out of 64 total threads. 
+Hello world, I'm thread 5 out of 64 total threads. 
+Hello world, I'm thread 3 out of 64 total threads. 
+Hello world, I'm thread 1 out of 64 total threads. 
+Hello world, I'm thread 62 out of 64 total threads. 
+Hello world, I'm thread 10 out of 64 total threads. 
+Hello world, I'm thread 57 out of 64 total threads. 
+Hello world, I'm thread 15 out of 64 total threads. 
+Hello world, I'm thread 55 out of 64 total threads. 
+Hello world, I'm thread 20 out of 64 total threads. 
+Hello world, I'm thread 19 out of 64 total threads. 
+Hello world, I'm thread 23 out of 64 total threads. 
+Hello world, I'm thread 53 out of 64 total threads. 
+Hello world, I'm thread 56 out of 64 total threads. 
+Hello world, I'm thread 16 out of 64 total threads. 
+Hello world, I'm thread 22 out of 64 total threads. 
+Hello world, I'm thread 21 out of 64 total threads. 
+Hello world, I'm thread 63 out of 64 total threads. 
+Hello world, I'm thread 12 out of 64 total threads. 
+Hello world, I'm thread 11 out of 64 total threads. 
+Hello world, I'm thread 52 out of 64 total threads. 
+Hello world, I'm thread 54 out of 64 total threads. 
+Hello world, I'm thread 27 out of 64 total threads. 
+Hello world, I'm thread 28 out of 64 total threads. 
+Hello world, I'm thread 26 out of 64 total threads. 
+Hello world, I'm thread 13 out of 64 total threads. 
+Hello world, I'm thread 18 out of 64 total threads. 
+Hello world, I'm thread 50 out of 64 total threads. 
+Hello world, I'm thread 49 out of 64 total threads. 
+Hello world, I'm thread 48 out of 64 total threads. 
+Hello world, I'm thread 44 out of 64 total threads. 
+Hello world, I'm thread 24 out of 64 total threads. 
+Hello world, I'm thread 31 out of 64 total threads. 
+Hello world, I'm thread 25 out of 64 total threads. 
+Hello world, I'm thread 17 out of 64 total threads. 
+Hello world, I'm thread 39 out of 64 total threads. 
+Hello world, I'm thread 40 out of 64 total threads. 
+Hello world, I'm thread 41 out of 64 total threads. 
+Hello world, I'm thread 42 out of 64 total threads. 
+Hello world, I'm thread 46 out of 64 total threads. 
+Hello world, I'm thread 14 out of 64 total threads. 
+Hello world, I'm thread 35 out of 64 total threads. 
+Hello world, I'm thread 38 out of 64 total threads. 
+Hello world, I'm thread 45 out of 64 total threads. 
+Hello world, I'm thread 32 out of 64 total threads. 
+Hello world, I'm thread 34 out of 64 total threads. 
+Hello world, I'm thread 37 out of 64 total threads. 
+Hello world, I'm thread 36 out of 64 total threads. 
+Hello world, I'm thread 51 out of 64 total threads. 
+Hello world, I'm thread 47 out of 64 total threads. 
+Hello world, I'm thread 61 out of 64 total threads. 
+Hello world, I'm thread 43 out of 64 total threads. 
+Hello world, I'm thread 59 out of 64 total threads. 
+Hello world, I'm thread 33 out of 64 total threads. 
+Hello world, I'm thread 60 out of 64 total threads. 
+Hello world, I'm thread 58 out of 64 total threads. 
+Hello world, I'm thread 29 out of 64 total threads. 
+Hello world, I'm thread 9 out of 64 total threads. 
+Hello world, I'm thread 8 out of 64 total threads. 
+Hello world, I'm thread 30 out of 64 total threads. 
+Working on problem size N=128 
+ Elapsed time is : 0.0004 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|    Region Info    | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 | HWThread 16 | HWThread 17 | HWThread 18 | HWThread 19 | HWThread 20 | HWThread 21 | HWThread 22 | HWThread 23 | HWThread 24 | HWThread 25 | HWThread 26 | HWThread 27 | HWThread 28 | HWThread 29 | HWThread 30 | HWThread 31 | HWThread 32 | HWThread 33 | HWThread 34 | HWThread 35 | HWThread 36 | HWThread 37 | HWThread 38 | HWThread 39 | HWThread 40 | HWThread 41 | HWThread 42 | HWThread 43 | HWThread 44 | HWThread 45 | HWThread 46 | HWThread 47 | HWThread 48 | HWThread 49 | HWThread 50 | HWThread 51 | HWThread 52 | HWThread 53 | HWThread 54 | HWThread 55 | HWThread 56 | HWThread 57 | HWThread 58 | HWThread 59 | HWThread 60 | HWThread 61 | HWThread 62 | HWThread 63 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RDTSC Runtime [s] |   0.000069 |   0.000100 |   0.000087 |   0.000105 |   0.000077 |   0.000076 |   0.000076 |   0.000077 |   0.000073 |   0.000099 |    0.000142 |    0.000079 |    0.000087 |    0.000145 |    0.000145 |    0.000149 |    0.000074 |    0.000128 |    0.000124 |    0.000125 |    0.000124 |    0.000127 |    0.000095 |    0.000094 |    0.000061 |    0.000090 |    0.000111 |    0.000076 |    0.000075 |    0.000090 |    0.000089 |    0.000109 |    0.000070 |    0.000072 |    0.000077 |    0.000066 |    0.000072 |    0.000076 |    0.000065 |    0.000084 |    0.000067 |    0.000081 |    0.000095 |    0.000080 |    0.000115 |    0.000069 |    0.000071 |    0.000069 |    0.000053 |    0.000074 |    0.000150 |    0.000086 |    0.000085 |    0.000074 |    0.000098 |    0.000152 |    0.000096 |    0.000142 |    0.000140 |    0.000113 |    0.000135 |    0.000137 |    0.000136 |    0.000138 |
+|     call count    |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|         Event        | Counter | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 | HWThread 16 | HWThread 17 | HWThread 18 | HWThread 19 | HWThread 20 | HWThread 21 | HWThread 22 | HWThread 23 | HWThread 24 | HWThread 25 | HWThread 26 | HWThread 27 | HWThread 28 | HWThread 29 | HWThread 30 | HWThread 31 | HWThread 32 | HWThread 33 | HWThread 34 | HWThread 35 | HWThread 36 | HWThread 37 | HWThread 38 | HWThread 39 | HWThread 40 | HWThread 41 | HWThread 42 | HWThread 43 | HWThread 44 | HWThread 45 | HWThread 46 | HWThread 47 | HWThread 48 | HWThread 49 | HWThread 50 | HWThread 51 | HWThread 52 | HWThread 53 | HWThread 54 | HWThread 55 | HWThread 56 | HWThread 57 | HWThread 58 | HWThread 59 | HWThread 60 | HWThread 61 | HWThread 62 | HWThread 63 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |     175499 |     186512 |     183745 |     185846 |     177912 |     179502 |     176771 |     177487 |     178916 |     186472 |      199946 |      180333 |      183253 |      200175 |      200234 |      200185 |      180183 |      193056 |      193118 |      193166 |      193179 |      193336 |      186594 |      186190 |      175895 |      183351 |      189156 |      180306 |      179823 |      183845 |      184535 |      189417 |      177613 |      177312 |      179193 |      175958 |      177269 |      179162 |      176013 |      180874 |      177922 |      181390 |      186408 |      181448 |      190965 |      178190 |      179053 |      178579 |      173737 |      180417 |      203181 |      184293 |      184195 |      180530 |      188817 |      203352 |      188085 |      199280 |      199394 |      192908 |      199219 |      199715 |      199200 |      199739 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |     300568 |     324546 |     283232 |     406108 |     251541 |     516338 |     305929 |     331301 |     396520 |     524317 |      661192 |      271942 |      488200 |      677987 |      678266 |      673806 |      497494 |      715477 |      564617 |      417302 |      564586 |      715193 |      702531 |      480247 |      356826 |      426445 |      375004 |      376632 |      366207 |      403477 |      423388 |      473769 |      323211 |      516449 |      345868 |      307159 |      595424 |      601120 |      561908 |      633321 |      570176 |      484939 |      338123 |      485712 |      395090 |      562377 |      619808 |      445736 |      177217 |      251375 |      482529 |      280408 |      279409 |      252683 |      317844 |      494059 |      385885 |      496513 |      494252 |      601287 |      654672 |      487177 |      665346 |      674233 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |      20788 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |      11738 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |       14433 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       15282 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       25689 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       19859 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       11111 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       12949 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3_ACCESS_MISS    |  CPMC1  |      13009 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |       7351 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |        5818 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |        7983 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       19119 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       14233 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |        5828 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |        5320 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++---------------------------+---------+----------+--------+--------+-------------+
+|           Event           | Counter |    Sum   |   Min  |   Max  |     Avg     |
++---------------------------+---------+----------+--------+--------+-------------+
+| RETIRED_INSTRUCTIONS STAT |   PMC0  | 11911349 | 173737 | 203352 | 186114.8281 |
+|  CPU_CLOCKS_UNHALTED STAT |   PMC1  | 29732298 | 177217 | 715477 | 464567.1562 |
+|  L3_ACCESS_ALL_TYPES STAT |  CPMC0  |   131849 |      0 |  25689 |   2060.1406 |
+|    L3_ACCESS_MISS STAT    |  CPMC1  |    78661 |      0 |  19119 |   1229.0781 |
++---------------------------+---------+----------+--------+--------+-------------+
+
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|        Metric       | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 | HWThread 16 | HWThread 17 | HWThread 18 | HWThread 19 | HWThread 20 | HWThread 21 | HWThread 22 | HWThread 23 | HWThread 24 | HWThread 25 | HWThread 26 | HWThread 27 | HWThread 28 | HWThread 29 | HWThread 30 | HWThread 31 | HWThread 32 | HWThread 33 | HWThread 34 | HWThread 35 | HWThread 36 | HWThread 37 | HWThread 38 | HWThread 39 | HWThread 40 | HWThread 41 | HWThread 42 | HWThread 43 | HWThread 44 | HWThread 45 | HWThread 46 | HWThread 47 | HWThread 48 | HWThread 49 | HWThread 50 | HWThread 51 | HWThread 52 | HWThread 53 | HWThread 54 | HWThread 55 | HWThread 56 | HWThread 57 | HWThread 58 | HWThread 59 | HWThread 60 | HWThread 61 | HWThread 62 | HWThread 63 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| Runtime (RDTSC) [s] |     0.0001 |     0.0001 |     0.0001 |     0.0001 |     0.0001 |     0.0001 |     0.0001 |     0.0001 |     0.0001 |     0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0002 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |      0.0001 |
+|         CPI         |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|   L3 request rate   |     0.1185 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0656 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0801 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0869 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.1446 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.1116 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0640 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0688 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|     L3 miss rate    |     0.0741 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0411 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0323 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0454 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.1076 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0800 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0335 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0283 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3 miss ratio    |     0.6258 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.6263 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.4031 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.5224 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.7442 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.7167 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.5245 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.4108 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++--------------------------+--------+--------+--------+--------+
+|          Metric          |   Sum  |   Min  |   Max  |   Avg  |
++--------------------------+--------+--------+--------+--------+
+| Runtime (RDTSC) [s] STAT | 0.0065 | 0.0001 | 0.0002 | 0.0001 |
+|         CPI STAT         |      0 |      0 |      0 |      0 |
+|   L3 request rate STAT   | 0.7401 |      0 | 0.1446 | 0.0116 |
+|     L3 miss rate STAT    | 0.4423 |      0 | 0.1076 | 0.0069 |
+|    L3 miss ratio STAT    | 4.5738 |      0 | 0.7442 | 0.0715 |
++--------------------------+--------+--------+--------+--------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-basic-omp -N 512
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+ Elapsed time is : 0.8134 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.813253 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |  674772800 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  | 2853448000 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |  218230100 |
+|    L3_ACCESS_MISS    |  CPMC1  |      44247 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.8133 |
+|         CPI         |          0 |
+|   L3 request rate   |     0.3234 |
+|     L3 miss rate    |     0.0001 |
+|    L3 miss ratio    |     0.0002 |
++---------------------+------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-3 ./benchmark-basic-omp -N 512
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 4 total threads. 
+Hello world, I'm thread 3 out of 4 total threads. 
+Hello world, I'm thread 2 out of 4 total threads. 
+Hello world, I'm thread 1 out of 4 total threads. 
+Working on problem size N=512 
+ Elapsed time is : 0.2091 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+------------+------------+------------+
+|    Region Info    | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 |
++-------------------+------------+------------+------------+------------+
+| RDTSC Runtime [s] |   0.208932 |   0.208960 |   0.208960 |   0.208944 |
+|     call count    |          1 |          1 |          1 |          1 |
++-------------------+------------+------------+------------+------------+
+
++----------------------+---------+------------+------------+------------+------------+
+|         Event        | Counter | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 |
++----------------------+---------+------------+------------+------------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |  169052900 |  168943000 |  168695000 |  168903300 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |  726943900 |  727128700 |  727305600 |  727161500 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |  220235800 |          0 |          0 |          0 |
+|    L3_ACCESS_MISS    |  CPMC1  |     152359 |          0 |          0 |          0 |
++----------------------+---------+------------+------------+------------+------------+
+
++---------------------------+---------+------------+-----------+-----------+------------+
+|           Event           | Counter |     Sum    |    Min    |    Max    |     Avg    |
++---------------------------+---------+------------+-----------+-----------+------------+
+| RETIRED_INSTRUCTIONS STAT |   PMC0  |  675594200 | 168695000 | 169052900 |  168898550 |
+|  CPU_CLOCKS_UNHALTED STAT |   PMC1  | 2908539700 | 726943900 | 727305600 |  727134925 |
+|  L3_ACCESS_ALL_TYPES STAT |  CPMC0  |  220235800 |         0 | 220235800 |   55058950 |
+|    L3_ACCESS_MISS STAT    |  CPMC1  |     152359 |         0 |    152359 | 38089.7500 |
++---------------------------+---------+------------+-----------+-----------+------------+
+
++---------------------+------------+------------+------------+------------+
+|        Metric       | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 |
++---------------------+------------+------------+------------+------------+
+| Runtime (RDTSC) [s] |     0.2089 |     0.2090 |     0.2090 |     0.2089 |
+|         CPI         |          0 |          0 |          0 |          0 |
+|   L3 request rate   |     1.3028 |          0 |          0 |          0 |
+|     L3 miss rate    |     0.0009 |          0 |          0 |          0 |
+|    L3 miss ratio    |     0.0007 |          0 |          0 |          0 |
++---------------------+------------+------------+------------+------------+
+
++--------------------------+--------+--------+--------+--------+
+|          Metric          |   Sum  |   Min  |   Max  |   Avg  |
++--------------------------+--------+--------+--------+--------+
+| Runtime (RDTSC) [s] STAT | 0.8358 | 0.2089 | 0.2090 | 0.2089 |
+|         CPI STAT         |      0 |      0 |      0 |      0 |
+|   L3 request rate STAT   | 1.3028 |      0 | 1.3028 | 0.3257 |
+|     L3 miss rate STAT    | 0.0009 |      0 | 0.0009 | 0.0002 |
+|    L3 miss ratio STAT    | 0.0007 |      0 | 0.0007 | 0.0002 |
++--------------------------+--------+--------+--------+--------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-15 ./benchmark-basic-omp -N 512
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 16 total threads. 
+Hello world, I'm thread 2 out of 16 total threads. 
+Hello world, I'm thread 1 out of 16 total threads. 
+Hello world, I'm thread 3 out of 16 total threads. 
+Hello world, I'm thread 4 out of 16 total threads. 
+Hello world, I'm thread 6 out of 16 total threads. 
+Hello world, I'm thread 5 out of 16 total threads. 
+Hello world, I'm thread 8 out of 16 total threads. 
+Hello world, I'm thread 11 out of 16 total threads. 
+Hello world, I'm thread 13 out of 16 total threads. 
+Hello world, I'm thread 10 out of 16 total threads. 
+Hello world, I'm thread 15 out of 16 total threads. 
+Hello world, I'm thread 12 out of 16 total threads. 
+Hello world, I'm thread 14 out of 16 total threads. 
+Hello world, I'm thread 9 out of 16 total threads. 
+Hello world, I'm thread 7 out of 16 total threads. 
+Working on problem size N=512 
+ Elapsed time is : 0.0676 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|    Region Info    | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RDTSC Runtime [s] |   0.067448 |   0.067481 |   0.067480 |   0.067480 |   0.067480 |   0.067480 |   0.067480 |   0.067480 |   0.067431 |   0.067480 |    0.067475 |    0.067477 |    0.067480 |    0.067477 |    0.067476 |    0.067480 |
+|     call count    |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |           1 |           1 |           1 |           1 |           1 |           1 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|         Event        | Counter | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |   42523040 |   42499200 |   42594800 |   42496510 |   42573910 |   42512640 |   42479540 |   42397260 |   42176710 |   42291760 |    42349500 |    42314070 |    42300300 |    42356850 |    42191100 |    42261770 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |  211186300 |  211092000 |  211128300 |  211130000 |  211139600 |  211051800 |  211131600 |  211114100 |  210439500 |  210956800 |   210540500 |   210496100 |   210991400 |   210557300 |   210490900 |   211027600 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |  134563800 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |  134457700 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3_ACCESS_MISS    |  CPMC1  |      46960 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |      94274 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++---------------------------+---------+------------+-----------+-----------+--------------+
+|           Event           | Counter |     Sum    |    Min    |    Max    |      Avg     |
++---------------------------+---------+------------+-----------+-----------+--------------+
+| RETIRED_INSTRUCTIONS STAT |   PMC0  |  678318960 |  42176710 |  42594800 |     42394935 |
+|  CPU_CLOCKS_UNHALTED STAT |   PMC1  | 3374473800 | 210439500 | 211186300 | 2.109046e+08 |
+|  L3_ACCESS_ALL_TYPES STAT |  CPMC0  |  269021500 |         0 | 134563800 | 1.681384e+07 |
+|    L3_ACCESS_MISS STAT    |  CPMC1  |     141234 |         0 |     94274 |    8827.1250 |
++---------------------------+---------+------------+-----------+-----------+--------------+
+
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|        Metric       | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| Runtime (RDTSC) [s] |     0.0674 |     0.0675 |     0.0675 |     0.0675 |     0.0675 |     0.0675 |     0.0675 |     0.0675 |     0.0674 |     0.0675 |      0.0675 |      0.0675 |      0.0675 |      0.0675 |      0.0675 |      0.0675 |
+|         CPI         |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|   L3 request rate   |     3.1645 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     3.1880 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|     L3 miss rate    |     0.0011 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0022 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3 miss ratio    |     0.0003 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0007 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++--------------------------+--------+--------+--------+--------+
+|          Metric          |   Sum  |   Min  |   Max  |   Avg  |
++--------------------------+--------+--------+--------+--------+
+| Runtime (RDTSC) [s] STAT | 1.0798 | 0.0674 | 0.0675 | 0.0675 |
+|         CPI STAT         |      0 |      0 |      0 |      0 |
+|   L3 request rate STAT   | 6.3525 |      0 | 3.1880 | 0.3970 |
+|     L3 miss rate STAT    | 0.0033 |      0 | 0.0022 | 0.0002 |
+|    L3 miss ratio STAT    | 0.0010 |      0 | 0.0007 | 0.0001 |
++--------------------------+--------+--------+--------+--------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-63 ./benchmark-basic-omp -N 512
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 64 total threads. 
+Hello world, I'm thread 6 out of 64 total threads. 
+Hello world, I'm thread 2 out of 64 total threads. 
+Hello world, I'm thread 4 out of 64 total threads. 
+Hello world, I'm thread 7 out of 64 total threads. 
+Hello world, I'm thread 3 out of 64 total threads. 
+Hello world, I'm thread 1 out of 64 total threads. 
+Hello world, I'm thread 5 out of 64 total threads. 
+Hello world, I'm thread 21 out of 64 total threads. 
+Hello world, I'm thread 17 out of 64 total threads. 
+Hello world, I'm thread 22 out of 64 total threads. 
+Hello world, I'm thread 23 out of 64 total threads. 
+Hello world, I'm thread 62 out of 64 total threads. 
+Hello world, I'm thread 58 out of 64 total threads. 
+Hello world, I'm thread 20 out of 64 total threads. 
+Hello world, I'm thread 27 out of 64 total threads. 
+Hello world, I'm thread 63 out of 64 total threads. 
+Hello world, I'm thread 41 out of 64 total threads. 
+Hello world, I'm thread 35 out of 64 total threads. 
+Hello world, I'm thread 59 out of 64 total threads. 
+Hello world, I'm thread 57 out of 64 total threads. 
+Hello world, I'm thread 40 out of 64 total threads. 
+Hello world, I'm thread 42 out of 64 total threads. 
+Hello world, I'm thread 46 out of 64 total threads. 
+Hello world, I'm thread 47 out of 64 total threads. 
+Hello world, I'm thread 15 out of 64 total threads. 
+Hello world, I'm thread 56 out of 64 total threads. 
+Hello world, I'm thread 26 out of 64 total threads. 
+Hello world, I'm thread 30 out of 64 total threads. 
+Hello world, I'm thread 13 out of 64 total threads. 
+Hello world, I'm thread 10 out of 64 total threads. 
+Hello world, I'm thread 8 out of 64 total threads. 
+Hello world, I'm thread 51 out of 64 total threads. 
+Hello world, I'm thread 24 out of 64 total threads. 
+Hello world, I'm thread 11 out of 64 total threads. 
+Hello world, I'm thread 44 out of 64 total threads. 
+Hello world, I'm thread 53 out of 64 total threads. 
+Hello world, I'm thread 19 out of 64 total threads. 
+Hello world, I'm thread 9 out of 64 total threads. 
+Hello world, I'm thread 60 out of 64 total threads. 
+Hello world, I'm thread 18 out of 64 total threads. 
+Hello world, I'm thread 29 out of 64 total threads. 
+Hello world, I'm thread 38 out of 64 total threads. 
+Hello world, I'm thread 37 out of 64 total threads. 
+Hello world, I'm thread 39 out of 64 total threads. 
+Hello world, I'm thread 43 out of 64 total threads. 
+Hello world, I'm thread 14 out of 64 total threads. 
+Hello world, I'm thread 45 out of 64 total threads. 
+Hello world, I'm thread 16 out of 64 total threads. 
+Hello world, I'm thread 28 out of 64 total threads. 
+Hello world, I'm thread 52 out of 64 total threads. 
+Hello world, I'm thread 49 out of 64 total threads. 
+Hello world, I'm thread 34 out of 64 total threads. 
+Hello world, I'm thread 36 out of 64 total threads. 
+Hello world, I'm thread 33 out of 64 total threads. 
+Hello world, I'm thread 61 out of 64 total threads. 
+Hello world, I'm thread 31 out of 64 total threads. 
+Hello world, I'm thread 50 out of 64 total threads. 
+Hello world, I'm thread 54 out of 64 total threads. 
+Hello world, I'm thread 55 out of 64 total threads. 
+Hello world, I'm thread 32 out of 64 total threads. 
+Hello world, I'm thread 12 out of 64 total threads. 
+Hello world, I'm thread 48 out of 64 total threads. 
+Hello world, I'm thread 25 out of 64 total threads. 
+Working on problem size N=512 
+ Elapsed time is : 0.0255 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|    Region Info    | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 | HWThread 16 | HWThread 17 | HWThread 18 | HWThread 19 | HWThread 20 | HWThread 21 | HWThread 22 | HWThread 23 | HWThread 24 | HWThread 25 | HWThread 26 | HWThread 27 | HWThread 28 | HWThread 29 | HWThread 30 | HWThread 31 | HWThread 32 | HWThread 33 | HWThread 34 | HWThread 35 | HWThread 36 | HWThread 37 | HWThread 38 | HWThread 39 | HWThread 40 | HWThread 41 | HWThread 42 | HWThread 43 | HWThread 44 | HWThread 45 | HWThread 46 | HWThread 47 | HWThread 48 | HWThread 49 | HWThread 50 | HWThread 51 | HWThread 52 | HWThread 53 | HWThread 54 | HWThread 55 | HWThread 56 | HWThread 57 | HWThread 58 | HWThread 59 | HWThread 60 | HWThread 61 | HWThread 62 | HWThread 63 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RDTSC Runtime [s] |   0.025219 |   0.025271 |   0.025272 |   0.025274 |   0.025249 |   0.025268 |   0.025263 |   0.025270 |   0.025230 |   0.025267 |    0.025273 |    0.025273 |    0.025275 |    0.025274 |    0.025274 |    0.025273 |    0.025243 |    0.025268 |    0.025277 |    0.025266 |    0.025277 |    0.025268 |    0.025278 |    0.025271 |    0.025232 |    0.025267 |    0.025255 |    0.025268 |    0.025256 |    0.025272 |    0.025263 |    0.025263 |    0.025244 |    0.025264 |    0.025263 |    0.025265 |    0.025263 |    0.025267 |    0.025267 |    0.025266 |    0.025214 |    0.025246 |    0.025246 |    0.025246 |    0.025247 |    0.025249 |    0.025249 |    0.025249 |    0.025241 |    0.025259 |    0.025260 |    0.025270 |    0.025269 |    0.025278 |    0.025278 |    0.025278 |    0.025234 |    0.025271 |    0.025272 |    0.025274 |    0.025272 |    0.025276 |    0.025275 |    0.025275 |
+|     call count    |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|         Event        | Counter | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 | HWThread 16 | HWThread 17 | HWThread 18 | HWThread 19 | HWThread 20 | HWThread 21 | HWThread 22 | HWThread 23 | HWThread 24 | HWThread 25 | HWThread 26 | HWThread 27 | HWThread 28 | HWThread 29 | HWThread 30 | HWThread 31 | HWThread 32 | HWThread 33 | HWThread 34 | HWThread 35 | HWThread 36 | HWThread 37 | HWThread 38 | HWThread 39 | HWThread 40 | HWThread 41 | HWThread 42 | HWThread 43 | HWThread 44 | HWThread 45 | HWThread 46 | HWThread 47 | HWThread 48 | HWThread 49 | HWThread 50 | HWThread 51 | HWThread 52 | HWThread 53 | HWThread 54 | HWThread 55 | HWThread 56 | HWThread 57 | HWThread 58 | HWThread 59 | HWThread 60 | HWThread 61 | HWThread 62 | HWThread 63 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |   12240550 |   12140120 |   11575420 |   11481790 |   11555180 |   11528890 |   11791160 |   11939640 |   11192700 |   11335330 |    10631170 |    10635040 |    10547540 |    10790640 |    10786160 |    11068840 |    11334640 |    11600150 |    11083460 |    10672760 |    10893460 |    10709230 |    11319580 |    11153340 |    11592670 |    11572920 |    11062830 |    10936640 |    11055970 |    10937630 |    11250540 |    11432330 |    11396560 |    11541620 |    11067720 |    11009880 |    10987580 |    11135360 |    11384690 |    11427750 |    11559000 |    11703120 |    10914080 |    11009650 |    10910680 |    11008940 |    11311220 |    11450400 |    11718990 |    11873280 |    11410320 |    11242860 |    11197710 |    11364760 |    11397150 |    11561160 |    11277820 |    11280930 |    10951420 |    10841540 |    10852630 |    10947450 |    11057370 |    11200700 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |   79071720 |   78935160 |   79022440 |   78981440 |   78927450 |   79294520 |   79260680 |   79294160 |   78798240 |   78898540 |    78873890 |    78867810 |    78932420 |    78916590 |    78893420 |    79246370 |    78826150 |    78894740 |    78908510 |    78875580 |    78915440 |    78890080 |    79210380 |    79200720 |    79022020 |    78969120 |    79045750 |    78961780 |    79139170 |    79233890 |    79372120 |    79381000 |    78835680 |    78919090 |    78906050 |    78911840 |    78905750 |    79233520 |    79160170 |    79216540 |    78783970 |    78868640 |    78848630 |    78885620 |    78878920 |    79171440 |    79145240 |    79045840 |    78882530 |    78908850 |    79014200 |    78969620 |    79174170 |    79257080 |    79342020 |    79382180 |    79092670 |    79212140 |    79153040 |    79042320 |    79217280 |    79304830 |    79305610 |    79520840 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |   28824970 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |   29077570 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |    29088840 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |    29156210 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |    28972040 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |    29084630 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |    28919000 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |    28993260 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3_ACCESS_MISS    |  CPMC1  |      19346 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |      55754 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |       53909 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       56323 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       59100 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       55430 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       60787 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |       56776 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++---------------------------+---------+------------+----------+----------+--------------+
+|           Event           | Counter |     Sum    |    Min   |    Max   |      Avg     |
++---------------------------+---------+------------+----------+----------+--------------+
+| RETIRED_INSTRUCTIONS STAT |   PMC0  |  719842660 | 10547540 | 12240550 | 1.124754e+07 |
+|  CPU_CLOCKS_UNHALTED STAT |   PMC1  | 5059557620 | 78783970 | 79520840 | 7.905559e+07 |
+|  L3_ACCESS_ALL_TYPES STAT |  CPMC0  |  232116520 |        0 | 29156210 | 3.626821e+06 |
+|    L3_ACCESS_MISS STAT    |  CPMC1  |     417425 |        0 |    60787 |    6522.2656 |
++---------------------------+---------+------------+----------+----------+--------------+
+
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|        Metric       | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 | HWThread 16 | HWThread 17 | HWThread 18 | HWThread 19 | HWThread 20 | HWThread 21 | HWThread 22 | HWThread 23 | HWThread 24 | HWThread 25 | HWThread 26 | HWThread 27 | HWThread 28 | HWThread 29 | HWThread 30 | HWThread 31 | HWThread 32 | HWThread 33 | HWThread 34 | HWThread 35 | HWThread 36 | HWThread 37 | HWThread 38 | HWThread 39 | HWThread 40 | HWThread 41 | HWThread 42 | HWThread 43 | HWThread 44 | HWThread 45 | HWThread 46 | HWThread 47 | HWThread 48 | HWThread 49 | HWThread 50 | HWThread 51 | HWThread 52 | HWThread 53 | HWThread 54 | HWThread 55 | HWThread 56 | HWThread 57 | HWThread 58 | HWThread 59 | HWThread 60 | HWThread 61 | HWThread 62 | HWThread 63 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| Runtime (RDTSC) [s] |     0.0252 |     0.0253 |     0.0253 |     0.0253 |     0.0252 |     0.0253 |     0.0253 |     0.0253 |     0.0252 |     0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0252 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0252 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0252 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0252 |      0.0252 |      0.0252 |      0.0252 |      0.0252 |      0.0252 |      0.0252 |      0.0252 |      0.0252 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0252 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |      0.0253 |
+|         CPI         |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|   L3 request rate   |     2.3549 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     2.5979 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |      2.5664 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      2.5151 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      2.5422 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      2.5162 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      2.4677 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      2.5708 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|     L3 miss rate    |     0.0016 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0050 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0048 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0049 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0052 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0048 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0052 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0050 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3 miss ratio    |     0.0007 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0019 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0019 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0019 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0020 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0019 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0021 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0020 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++--------------------------+---------+--------+--------+--------+
+|          Metric          |   Sum   |   Min  |   Max  |   Avg  |
++--------------------------+---------+--------+--------+--------+
+| Runtime (RDTSC) [s] STAT |  1.6176 | 0.0252 | 0.0253 | 0.0253 |
+|         CPI STAT         |       0 |      0 |      0 |      0 |
+|   L3 request rate STAT   | 20.1312 |      0 | 2.5979 | 0.3145 |
+|     L3 miss rate STAT    |  0.0365 |      0 | 0.0052 | 0.0006 |
+|    L3 miss ratio STAT    |  0.0144 |      0 | 0.0021 | 0.0002 |
++--------------------------+---------+--------+--------+--------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-basic-omp -N 2048
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+ Elapsed time is : 143.1871 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] | 143.188400 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+--------------+
+|         Event        | Counter |  HWThread 0  |
++----------------------+---------+--------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |  43008470000 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  | 502258200000 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |  30363260000 |
+|    L3_ACCESS_MISS    |  CPMC1  |    314796700 |
++----------------------+---------+--------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |   143.1884 |
+|         CPI         |          0 |
+|   L3 request rate   |     0.7060 |
+|     L3 miss rate    |     0.0073 |
+|    L3 miss ratio    |     0.0104 |
++---------------------+------------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-3 ./benchmark-basic-omp -N 2048
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 4 total threads. 
+Hello world, I'm thread 3 out of 4 total threads. 
+Hello world, I'm thread 1 out of 4 total threads. 
+Hello world, I'm thread 2 out of 4 total threads. 
+Working on problem size N=2048 
+ Elapsed time is : 35.2399 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+------------+------------+------------+
+|    Region Info    | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 |
++-------------------+------------+------------+------------+------------+
+| RDTSC Runtime [s] |  35.240420 |  35.240450 |  35.240450 |  35.240450 |
+|     call count    |          1 |          1 |          1 |          1 |
++-------------------+------------+------------+------------+------------+
+
++----------------------+---------+--------------+--------------+--------------+--------------+
+|         Event        | Counter |  HWThread 0  |  HWThread 1  |  HWThread 2  |  HWThread 3  |
++----------------------+---------+--------------+--------------+--------------+--------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |  10754220000 |  10754220000 |  10752120000 |  10754220000 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  | 123031100000 | 122929100000 | 123670600000 | 123136400000 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |  29673540000 |            0 |            0 |            0 |
+|    L3_ACCESS_MISS    |  CPMC1  |    159062100 |            0 |            0 |            0 |
++----------------------+---------+--------------+--------------+--------------+--------------+
+
++---------------------------+---------+--------------+--------------+--------------+--------------+
+|           Event           | Counter |      Sum     |      Min     |      Max     |      Avg     |
++---------------------------+---------+--------------+--------------+--------------+--------------+
+| RETIRED_INSTRUCTIONS STAT |   PMC0  |  43014780000 |  10752120000 |  10754220000 |  10753695000 |
+|  CPU_CLOCKS_UNHALTED STAT |   PMC1  | 492767200000 | 122929100000 | 123670600000 | 123191800000 |
+|  L3_ACCESS_ALL_TYPES STAT |  CPMC0  |  29673540000 |            0 |  29673540000 |   7418385000 |
+|    L3_ACCESS_MISS STAT    |  CPMC1  |    159062100 |            0 |    159062100 |     39765525 |
++---------------------------+---------+--------------+--------------+--------------+--------------+
+
++---------------------+------------+------------+------------+------------+
+|        Metric       | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 |
++---------------------+------------+------------+------------+------------+
+| Runtime (RDTSC) [s] |    35.2404 |    35.2405 |    35.2405 |    35.2405 |
+|         CPI         |          0 |          0 |          0 |          0 |
+|   L3 request rate   |     2.7592 |          0 |          0 |          0 |
+|     L3 miss rate    |     0.0148 |          0 |          0 |          0 |
+|    L3 miss ratio    |     0.0054 |          0 |          0 |          0 |
++---------------------+------------+------------+------------+------------+
+
++--------------------------+----------+---------+---------+---------+
+|          Metric          |    Sum   |   Min   |   Max   |   Avg   |
++--------------------------+----------+---------+---------+---------+
+| Runtime (RDTSC) [s] STAT | 140.9619 | 35.2404 | 35.2405 | 35.2405 |
+|         CPI STAT         |        0 |       0 |       0 |       0 |
+|   L3 request rate STAT   |   2.7592 |       0 |  2.7592 |  0.6898 |
+|     L3 miss rate STAT    |   0.0148 |       0 |  0.0148 |  0.0037 |
+|    L3 miss ratio STAT    |   0.0054 |       0 |  0.0054 |  0.0014 |
++--------------------------+----------+---------+---------+---------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-15 ./benchmark-basic-omp -N 2048
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 16 total threads. 
+Hello world, I'm thread 1 out of 16 total threads. 
+Hello world, I'm thread 4 out of 16 total threads. 
+Hello world, I'm thread 5 out of 16 total threads. 
+Hello world, I'm thread 3 out of 16 total threads. 
+Hello world, I'm thread 2 out of 16 total threads. 
+Hello world, I'm thread 10 out of 16 total threads. 
+Hello world, I'm thread 7 out of 16 total threads. 
+Hello world, I'm thread 6 out of 16 total threads. 
+Hello world, I'm thread 14 out of 16 total threads. 
+Hello world, I'm thread 15 out of 16 total threads. 
+Hello world, I'm thread 8 out of 16 total threads. 
+Hello world, I'm thread 9 out of 16 total threads. 
+Hello world, I'm thread 13 out of 16 total threads. 
+Hello world, I'm thread 11 out of 16 total threads. 
+Hello world, I'm thread 12 out of 16 total threads. 
+Working on problem size N=2048 
+ Elapsed time is : 9.5895 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|    Region Info    | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RDTSC Runtime [s] |   9.589250 |   9.588884 |   9.588885 |   9.588880 |   9.588880 |   9.588879 |   9.588880 |   9.588874 |   9.589200 |   9.589241 |    9.589237 |    9.589244 |    9.589243 |    9.589242 |    9.589247 |    9.589249 |
+|     call count    |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |           1 |           1 |           1 |           1 |           1 |           1 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++----------------------+---------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|         Event        | Counter |  HWThread 0 |  HWThread 1 |  HWThread 2 |  HWThread 3 |  HWThread 4 |  HWThread 5 |  HWThread 6 |  HWThread 7 |  HWThread 8 |  HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 |
++----------------------+---------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |  2688033000 |  2690132000 |  2690132000 |  2690132000 |  2690133000 |  2690134000 |  2690133000 |  2690122000 |  2690133000 |  2690133000 |  2689388000 |  2690133000 |  2690133000 |  2690133000 |  2690134000 |  2690133000 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  | 30074690000 | 30012350000 | 29991720000 | 29897460000 | 29931530000 | 29753580000 | 29954270000 | 30099990000 | 29966040000 | 29974070000 | 30099370000 | 29941420000 | 29911080000 | 29834760000 | 29991710000 | 30058560000 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  | 14668680000 |           0 |           0 |           0 |           0 |           0 |           0 |           0 | 14665110000 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3_ACCESS_MISS    |  CPMC1  |    34183440 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |    35618260 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
++----------------------+---------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++---------------------------+---------+--------------+-------------+-------------+--------------+
+|           Event           | Counter |      Sum     |     Min     |     Max     |      Avg     |
++---------------------------+---------+--------------+-------------+-------------+--------------+
+| RETIRED_INSTRUCTIONS STAT |   PMC0  |  43039271000 |  2688033000 |  2690134000 | 2.689954e+09 |
+|  CPU_CLOCKS_UNHALTED STAT |   PMC1  | 479492600000 | 29753580000 | 30099990000 |  29968287500 |
+|  L3_ACCESS_ALL_TYPES STAT |  CPMC0  |  29333790000 |           0 | 14668680000 |   1833361875 |
+|    L3_ACCESS_MISS STAT    |  CPMC1  |     69801700 |           0 |    35618260 | 4.362606e+06 |
++---------------------------+---------+--------------+-------------+-------------+--------------+
+
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|        Metric       | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| Runtime (RDTSC) [s] |     9.5892 |     9.5889 |     9.5889 |     9.5889 |     9.5889 |     9.5889 |     9.5889 |     9.5889 |     9.5892 |     9.5892 |      9.5892 |      9.5892 |      9.5892 |      9.5892 |      9.5892 |      9.5892 |
+|         CPI         |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|   L3 request rate   |     5.4570 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     5.4514 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|     L3 miss rate    |     0.0127 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0132 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3 miss ratio    |     0.0023 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0024 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++--------------------------+----------+--------+--------+--------+
+|          Metric          |    Sum   |   Min  |   Max  |   Avg  |
++--------------------------+----------+--------+--------+--------+
+| Runtime (RDTSC) [s] STAT | 153.4251 | 9.5889 | 9.5892 | 9.5891 |
+|         CPI STAT         |        0 |      0 |      0 |      0 |
+|   L3 request rate STAT   |  10.9084 |      0 | 5.4570 | 0.6818 |
+|     L3 miss rate STAT    |   0.0259 |      0 | 0.0132 | 0.0016 |
+|    L3 miss ratio STAT    |   0.0047 |      0 | 0.0024 | 0.0003 |
++--------------------------+----------+--------+--------+--------+
+
+likwid-perfctr -m -g L3CACHE -C N:0-63 ./benchmark-basic-omp -N 2048
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Basic implementation, OpenMP-enabled, three-loop dgemm.
+
+Hello world, I'm thread 0 out of 64 total threads. 
+Hello world, I'm thread 1 out of 64 total threads. 
+Hello world, I'm thread 4 out of 64 total threads. 
+Hello world, I'm thread 2 out of 64 total threads. 
+Hello world, I'm thread 6 out of 64 total threads. 
+Hello world, I'm thread 7 out of 64 total threads. 
+Hello world, I'm thread 5 out of 64 total threads. 
+Hello world, I'm thread 37 out of 64 total threads. 
+Hello world, I'm thread 38 out of 64 total threads. 
+Hello world, I'm thread 33 out of 64 total threads. 
+Hello world, I'm thread 39 out of 64 total threads. 
+Hello world, I'm thread 32 out of 64 total threads. 
+Hello world, I'm thread 29 out of 64 total threads. 
+Hello world, I'm thread 62 out of 64 total threads. 
+Hello world, I'm thread 56 out of 64 total threads. 
+Hello world, I'm thread 61 out of 64 total threads. 
+Hello world, I'm thread 23 out of 64 total threads. 
+Hello world, I'm thread 21 out of 64 total threads. 
+Hello world, I'm thread 31 out of 64 total threads. 
+Hello world, I'm thread 63 out of 64 total threads. 
+Hello world, I'm thread 57 out of 64 total threads. 
+Hello world, I'm thread 16 out of 64 total threads. 
+Hello world, I'm thread 8 out of 64 total threads. 
+Hello world, I'm thread 13 out of 64 total threads. 
+Hello world, I'm thread 53 out of 64 total threads. 
+Hello world, I'm thread 55 out of 64 total threads. 
+Hello world, I'm thread 34 out of 64 total threads. 
+Hello world, I'm thread 54 out of 64 total threads. 
+Hello world, I'm thread 50 out of 64 total threads. 
+Hello world, I'm thread 49 out of 64 total threads. 
+Hello world, I'm thread 59 out of 64 total threads. 
+Hello world, I'm thread 22 out of 64 total threads. 
+Hello world, I'm thread 35 out of 64 total threads. 
+Hello world, I'm thread 27 out of 64 total threads. 
+Hello world, I'm thread 28 out of 64 total threads. 
+Hello world, I'm thread 11 out of 64 total threads. 
+Hello world, I'm thread 52 out of 64 total threads. 
+Hello world, I'm thread 51 out of 64 total threads. 
+Hello world, I'm thread 36 out of 64 total threads. 
+Hello world, I'm thread 60 out of 64 total threads. 
+Hello world, I'm thread 20 out of 64 total threads. 
+Hello world, I'm thread 19 out of 64 total threads. 
+Hello world, I'm thread 26 out of 64 total threads. 
+Hello world, I'm thread 30 out of 64 total threads. 
+Hello world, I'm thread 9 out of 64 total threads. 
+Hello world, I'm thread 18 out of 64 total threads. 
+Hello world, I'm thread 24 out of 64 total threads. 
+Hello world, I'm thread 10 out of 64 total threads. 
+Hello world, I'm thread 14 out of 64 total threads. 
+Hello world, I'm thread 42 out of 64 total threads. 
+Hello world, I'm thread 43 out of 64 total threads. 
+Hello world, I'm thread 44 out of 64 total threads. 
+Hello world, I'm thread 41 out of 64 total threads. 
+Hello world, I'm thread 47 out of 64 total threads. 
+Hello world, I'm thread 46 out of 64 total threads. 
+Hello world, I'm thread 58 out of 64 total threads. 
+Hello world, I'm thread 17 out of 64 total threads. 
+Hello world, I'm thread 25 out of 64 total threads. 
+Hello world, I'm thread 12 out of 64 total threads. 
+Hello world, I'm thread 45 out of 64 total threads. 
+Hello world, I'm thread 40 out of 64 total threads. 
+Hello world, I'm thread 3 out of 64 total threads. 
+Hello world, I'm thread 15 out of 64 total threads. 
+Hello world, I'm thread 48 out of 64 total threads. 
+Working on problem size N=2048 
+ Elapsed time is : 2.6215 (sec) 
+--------------------------------------------------------------------------------
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula FIXC1/FIXC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
+Cannot calculate formula CPMC1/CPMC0
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|    Region Info    | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 | HWThread 16 | HWThread 17 | HWThread 18 | HWThread 19 | HWThread 20 | HWThread 21 | HWThread 22 | HWThread 23 | HWThread 24 | HWThread 25 | HWThread 26 | HWThread 27 | HWThread 28 | HWThread 29 | HWThread 30 | HWThread 31 | HWThread 32 | HWThread 33 | HWThread 34 | HWThread 35 | HWThread 36 | HWThread 37 | HWThread 38 | HWThread 39 | HWThread 40 | HWThread 41 | HWThread 42 | HWThread 43 | HWThread 44 | HWThread 45 | HWThread 46 | HWThread 47 | HWThread 48 | HWThread 49 | HWThread 50 | HWThread 51 | HWThread 52 | HWThread 53 | HWThread 54 | HWThread 55 | HWThread 56 | HWThread 57 | HWThread 58 | HWThread 59 | HWThread 60 | HWThread 61 | HWThread 62 | HWThread 63 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RDTSC Runtime [s] |   2.621015 |   2.620773 |   2.620743 |   2.620782 |   2.620715 |   2.620751 |   2.620746 |   2.620748 |   2.620686 |   2.620716 |    2.620718 |    2.620713 |    2.620727 |    2.620732 |    2.620673 |    2.620705 |    2.620688 |    2.620682 |    2.620727 |    2.620726 |    2.620711 |    2.620735 |    2.620719 |    2.620718 |    2.620638 |    2.620685 |    2.620706 |    2.620724 |    2.620683 |    2.620682 |    2.620678 |    2.620711 |    2.620666 |    2.620732 |    2.620710 |    2.620738 |    2.620708 |    2.620734 |    2.620733 |    2.620706 |    2.620671 |    2.620712 |    2.620720 |    2.620735 |    2.620711 |    2.620718 |    2.620709 |    2.620711 |    2.620684 |    2.621061 |    2.621062 |    2.621086 |    2.621075 |    2.620717 |    2.621069 |    2.621062 |    2.620991 |    2.621076 |    2.620740 |    2.620738 |    2.620686 |    2.620673 |    2.620753 |    2.620672 |
+|     call count    |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |          1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |           1 |
++-------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|         Event        | Counter | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 | HWThread 16 | HWThread 17 | HWThread 18 | HWThread 19 | HWThread 20 | HWThread 21 | HWThread 22 | HWThread 23 | HWThread 24 | HWThread 25 | HWThread 26 | HWThread 27 | HWThread 28 | HWThread 29 | HWThread 30 | HWThread 31 | HWThread 32 | HWThread 33 | HWThread 34 | HWThread 35 | HWThread 36 | HWThread 37 | HWThread 38 | HWThread 39 | HWThread 40 | HWThread 41 | HWThread 42 | HWThread 43 | HWThread 44 | HWThread 45 | HWThread 46 | HWThread 47 | HWThread 48 | HWThread 49 | HWThread 50 | HWThread 51 | HWThread 52 | HWThread 53 | HWThread 54 | HWThread 55 | HWThread 56 | HWThread 57 | HWThread 58 | HWThread 59 | HWThread 60 | HWThread 61 | HWThread 62 | HWThread 63 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |  674111500 |  674110600 |  674110700 |  674110700 |  674111500 |  674110800 |  674110800 |  674110900 |  674111300 |  674110900 |   674111000 |   674111000 |   674111000 |   674111900 |   674111200 |   674111200 |   674111500 |   674111900 |   674111200 |   674111300 |   674111300 |   674111400 |   674111300 |   674111400 |   674112600 |   674112300 |   674111600 |   674111500 |   674112400 |   674111600 |   674111700 |   672011700 |   674112300 |   674111700 |   674111800 |   674111800 |   674111900 |   674111900 |   674112000 |   674112000 |   674112400 |   674112100 |   674112100 |   674112100 |   674112200 |   674112200 |   674112200 |   674112300 |   674112700 |   674112300 |   674112400 |   674114500 |   674112400 |   674112500 |   674112500 |   674112600 |   674113000 |   674112600 |   674112700 |   674112700 |   674112700 |   674112900 |   674112800 |   674112900 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  | 7546807000 | 7631797000 | 7691086000 | 7655370000 | 7574170000 | 7681378000 | 7697116000 | 7713840000 | 7621115000 | 7662372000 |  7663937000 |  7651501000 |  7611736000 |  7553540000 |  7600694000 |  7707545000 |  7623906000 |  7561508000 |  7624424000 |  7621354000 |  7669550000 |  7626685000 |  7667875000 |  7668786000 |  7567580000 |  7558294000 |  7661072000 |  7621309000 |  7592337000 |  7596360000 |  7603699000 |  7749548000 |  7650488000 |  7620403000 |  7640059000 |  7634447000 |  7681731000 |  7620002000 |  7625666000 |  7725252000 |  7660850000 |  7649436000 |  7666753000 |  7621745000 |  7655708000 |  7598225000 |  7702897000 |  7675080000 |  7593778000 |  7640906000 |  7666353000 |  7549188000 |  7620918000 |  7645255000 |  7615666000 |  7656976000 |  7601568000 |  7607195000 |  7621057000 |  7644357000 |  7600252000 |  7565037000 |  7629958000 |  7579768000 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  | 3640250000 |          0 |          0 |          0 |          0 |          0 |          0 |          0 | 3638950000 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |  3638633000 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |  3631950000 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |  3644298000 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |  3643107000 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |  3623244000 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |  3635917000 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3_ACCESS_MISS    |  CPMC1  |    8831127 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |    7096295 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |     8146437 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |     8110244 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |     5869258 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |     6833810 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |     7205235 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |     6170443 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
++----------------------+---------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++---------------------------+---------+--------------+------------+------------+--------------+
+|           Event           | Counter |      Sum     |     Min    |     Max    |      Avg     |
++---------------------------+---------+--------------+------------+------------+--------------+
+| RETIRED_INSTRUCTIONS STAT |   PMC0  |  43141060900 |  672011700 |  674114500 | 6.740791e+08 |
+|  CPU_CLOCKS_UNHALTED STAT |   PMC1  | 488545265000 | 7546807000 | 7749548000 | 7.633520e+09 |
+|  L3_ACCESS_ALL_TYPES STAT |  CPMC0  |  29096349000 |          0 | 3644298000 | 4.546305e+08 |
+|    L3_ACCESS_MISS STAT    |  CPMC1  |     58262849 |          0 |    8831127 |  910357.0156 |
++---------------------------+---------+--------------+------------+------------+--------------+
+
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|        Metric       | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 | HWThread 5 | HWThread 6 | HWThread 7 | HWThread 8 | HWThread 9 | HWThread 10 | HWThread 11 | HWThread 12 | HWThread 13 | HWThread 14 | HWThread 15 | HWThread 16 | HWThread 17 | HWThread 18 | HWThread 19 | HWThread 20 | HWThread 21 | HWThread 22 | HWThread 23 | HWThread 24 | HWThread 25 | HWThread 26 | HWThread 27 | HWThread 28 | HWThread 29 | HWThread 30 | HWThread 31 | HWThread 32 | HWThread 33 | HWThread 34 | HWThread 35 | HWThread 36 | HWThread 37 | HWThread 38 | HWThread 39 | HWThread 40 | HWThread 41 | HWThread 42 | HWThread 43 | HWThread 44 | HWThread 45 | HWThread 46 | HWThread 47 | HWThread 48 | HWThread 49 | HWThread 50 | HWThread 51 | HWThread 52 | HWThread 53 | HWThread 54 | HWThread 55 | HWThread 56 | HWThread 57 | HWThread 58 | HWThread 59 | HWThread 60 | HWThread 61 | HWThread 62 | HWThread 63 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+| Runtime (RDTSC) [s] |     2.6210 |     2.6208 |     2.6207 |     2.6208 |     2.6207 |     2.6208 |     2.6207 |     2.6207 |     2.6207 |     2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6206 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6211 |      2.6211 |      2.6211 |      2.6211 |      2.6207 |      2.6211 |      2.6211 |      2.6210 |      2.6211 |      2.6207 |      2.6207 |      2.6207 |      2.6207 |      2.6208 |      2.6207 |
+|         CPI         |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|   L3 request rate   |     5.4001 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     5.3981 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |      5.3977 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      5.3877 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      5.4061 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      5.4043 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      5.3748 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      5.3936 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|     L3 miss rate    |     0.0131 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0105 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0121 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0120 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0087 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0101 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0107 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0092 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
+|    L3 miss ratio    |     0.0024 |          0 |          0 |          0 |          0 |          0 |          0 |          0 |     0.0020 |          0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0022 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0022 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0016 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0019 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0020 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |      0.0017 |           0 |           0 |           0 |           0 |           0 |           0 |           0 |
++---------------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
++--------------------------+----------+--------+--------+--------+
+|          Metric          |    Sum   |   Min  |   Max  |   Avg  |
++--------------------------+----------+--------+--------+--------+
+| Runtime (RDTSC) [s] STAT | 167.7285 | 2.6206 | 2.6211 | 2.6208 |
+|         CPI STAT         |        0 |      0 |      0 |      0 |
+|   L3 request rate STAT   |  43.1624 |      0 | 5.4061 | 0.6744 |
+|     L3 miss rate STAT    |   0.0864 |      0 | 0.0131 | 0.0014 |
+|    L3 miss ratio STAT    |   0.0160 |      0 | 0.0024 | 0.0003 |
++--------------------------+----------+--------+--------+--------+
+
