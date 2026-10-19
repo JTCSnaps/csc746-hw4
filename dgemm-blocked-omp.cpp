@@ -21,8 +21,6 @@ void square_dgemm_blocked(int n, int block_size, double* A, double* B, double* C
    // after the matrix multiply code but before the end of the parallel code block.
  int num_blocks = n / block_size;
 
-    LIKWID_MARKER_INIT;
-
     #pragma omp parallel
     {
         // Each thread gets its own copy buffers
@@ -30,7 +28,6 @@ void square_dgemm_blocked(int n, int block_size, double* A, double* B, double* C
         std::vector<double> B_cache(block_size * block_size);
         std::vector<double> C_cache(block_size * block_size);
 
-        LIKWID_MARKER_THREADINIT;
         LIKWID_MARKER_START(MY_MARKER_REGION_NAME);
 
         #pragma omp for
