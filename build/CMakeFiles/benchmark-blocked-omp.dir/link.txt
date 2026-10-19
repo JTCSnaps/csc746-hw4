@@ -1,1 +1,1 @@
-/usr/bin/c++ -O3 -DNDEBUG -fopenmp CMakeFiles/benchmark-blocked-omp.dir/dgemm-blocked-omp.cpp.o CMakeFiles/bench-blocked-omp.dir/benchmark.cpp.o -o benchmark-blocked-omp  /usr/lib/x86_64-linux-gnu/libopenblas.so 
+/usr/bin/c++ -O3 -DNDEBUG -fopenmp CMakeFiles/benchmark-blocked-omp.dir/dgemm-blocked-omp.cpp.o CMakeFiles/bench-blocked-omp.dir/benchmark.cpp.o -o benchmark-blocked-omp  /usr/lib/aarch64-linux-gnu/libopenblas.so 

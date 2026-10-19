@@ -94,7 +94,7 @@ benchmark__basic__omp_EXTERNAL_OBJECTS = \
 benchmark-basic-omp: CMakeFiles/benchmark-basic-omp.dir/dgemm-basic-omp.cpp.o
 benchmark-basic-omp: CMakeFiles/benchmark.dir/benchmark.cpp.o
 benchmark-basic-omp: CMakeFiles/benchmark-basic-omp.dir/build.make
-benchmark-basic-omp: /usr/lib/x86_64-linux-gnu/libopenblas.so
+benchmark-basic-omp: /usr/lib/aarch64-linux-gnu/libopenblas.so
 benchmark-basic-omp: CMakeFiles/benchmark-basic-omp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable benchmark-basic-omp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/benchmark-basic-omp.dir/link.txt --verbose=$(VERBOSE)

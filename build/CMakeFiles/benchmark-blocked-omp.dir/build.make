@@ -94,7 +94,7 @@ benchmark__blocked__omp_EXTERNAL_OBJECTS = \
 benchmark-blocked-omp: CMakeFiles/benchmark-blocked-omp.dir/dgemm-blocked-omp.cpp.o
 benchmark-blocked-omp: CMakeFiles/bench-blocked-omp.dir/benchmark.cpp.o
 benchmark-blocked-omp: CMakeFiles/benchmark-blocked-omp.dir/build.make
-benchmark-blocked-omp: /usr/lib/x86_64-linux-gnu/libopenblas.so
+benchmark-blocked-omp: /usr/lib/aarch64-linux-gnu/libopenblas.so
 benchmark-blocked-omp: CMakeFiles/benchmark-blocked-omp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable benchmark-blocked-omp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/benchmark-blocked-omp.dir/link.txt --verbose=$(VERBOSE)
