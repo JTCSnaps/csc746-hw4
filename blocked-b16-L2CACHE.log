@@ -1,0 +1,135 @@
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0021 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.001016 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+------------+
+|              Event             | Counter | HWThread 0 |
++--------------------------------+---------+------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |      73000 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |      55746 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |       1998 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |       2286 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |      68759 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  |   13371720 |
++--------------------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.0010 |
+|   L2 request rate   |     0.0099 |
+|     L2 miss rate    |     0.0006 |
+|    L2 miss ratio    |     0.0641 |
+|     L2 accesses     |     133030 |
+|       L2 hits       |     124505 |
+|      L2 misses      |       8525 |
++---------------------+------------+
+
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0583 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.057804 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+------------+
+|              Event             | Counter | HWThread 0 |
++--------------------------------+---------+------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |    5050060 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |    5473552 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |    2034089 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |         53 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |    3380610 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  |  851461000 |
++--------------------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.0578 |
+|   L2 request rate   |     0.0147 |
+|     L2 miss rate    |     0.0043 |
+|    L2 miss ratio    |     0.2949 |
+|     L2 accesses     |   12557754 |
+|       L2 hits       |    8854162 |
+|      L2 misses      |    3703592 |
++---------------------+------------+
+
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 3.8927 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L2CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   3.892014 |
+|     call count    |          1 |
++-------------------+------------+
+
++--------------------------------+---------+-------------+
+|              Event             | Counter |  HWThread 0 |
++--------------------------------+---------+-------------+
+|  REQUESTS_TO_L2_GRP1_ALL_NO_PF |   PMC0  |   336590400 |
+|         L2_PF_HIT_IN_L2        |   PMC1  |   260029800 |
+|         L2_PF_HIT_IN_L3        |   PMC2  |   135548700 |
+|        L2_PF_MISS_IN_L3        |   PMC3  |    16982140 |
+| CORE_TO_L2_CACHE_REQUESTS_HITS |   PMC4  |   222799700 |
+|      RETIRED_INSTRUCTIONS      |   PMC5  | 54429670000 |
++--------------------------------+---------+-------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     3.8920 |
+|   L2 request rate   |     0.0138 |
+|     L2 miss rate    |     0.0049 |
+|    L2 miss ratio    |     0.3555 |
+|     L2 accesses     |  749151040 |
+|       L2 hits       |  482829500 |
+|      L2 misses      |  266321540 |
++---------------------+------------+
+
