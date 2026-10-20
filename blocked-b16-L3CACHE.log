@@ -1,0 +1,123 @@
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=128 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0027 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.001018 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |   13371250 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |    3183420 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |      11240 |
+|    L3_ACCESS_MISS    |  CPMC1  |       4441 |
++----------------------+---------+------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     0.0010 |
+|         CPI         |          0 |
+|   L3 request rate   |     0.0008 |
+|     L3 miss rate    |     0.0003 |
+|    L3 miss ratio    |     0.3951 |
++---------------------+------------+
+
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=512 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 0.0574 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   0.057053 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+------------+
+|         Event        | Counter | HWThread 0 |
++----------------------+---------+------------+
+| RETIRED_INSTRUCTIONS |   PMC0  |  851460500 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |  200327200 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |    2981630 |
+|    L3_ACCESS_MISS    |  CPMC1  |       5618 |
++----------------------+---------+------------+
+
++---------------------+--------------+
+|        Metric       |  HWThread 0  |
++---------------------+--------------+
+| Runtime (RDTSC) [s] |       0.0571 |
+|         CPI         |            0 |
+|   L3 request rate   |       0.0035 |
+|     L3 miss rate    | 6.598075e-06 |
+|    L3 miss ratio    |       0.0019 |
++---------------------+--------------+
+
+--------------------------------------------------------------------------------
+CPU name:	AMD EPYC 7763 64-Core Processor                
+CPU type:	AMD K19 (Zen3) architecture
+CPU clock:	2.45 GHz
+--------------------------------------------------------------------------------
+Description:	Blocked dgemm, OpenMP-enabled
+
+Hello world, I'm thread 0 out of 1 total threads. 
+Working on problem size N=2048 
+Blocked DGEMM 
+ Working on Block size = 16 
+Insert your blocked matrix multiply with copy optimization, openmp-parallel edition here 
+ Elapsed time is : 3.8410 (sec) 
+--------------------------------------------------------------------------------
+Region MMUL_Region, Group 1: L3CACHE
++-------------------+------------+
+|    Region Info    | HWThread 0 |
++-------------------+------------+
+| RDTSC Runtime [s] |   3.838513 |
+|     call count    |          1 |
++-------------------+------------+
+
++----------------------+---------+-------------+
+|         Event        | Counter |  HWThread 0 |
++----------------------+---------+-------------+
+| RETIRED_INSTRUCTIONS |   PMC0  | 54429670000 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  | 13457730000 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |   225817900 |
+|    L3_ACCESS_MISS    |  CPMC1  |    22314670 |
++----------------------+---------+-------------+
+
++---------------------+------------+
+|        Metric       | HWThread 0 |
++---------------------+------------+
+| Runtime (RDTSC) [s] |     3.8385 |
+|         CPI         |          0 |
+|   L3 request rate   |     0.0041 |
+|     L3 miss rate    |     0.0004 |
+|    L3 miss ratio    |     0.0988 |
++---------------------+------------+
+

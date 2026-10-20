@@ -1,4 +1,3 @@
-likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-blas -N 128
 --------------------------------------------------------------------------------
 CPU name:	AMD EPYC 7763 64-Core Processor                
 CPU type:	AMD K19 (Zen3) architecture
@@ -8,38 +7,35 @@ Description:	Reference dgemm.
 
 Hello world, I'm thread 0 out of 1 total threads. 
 Working on problem size N=128 
- Elapsed time is : 0.0004 (sec) 
+ Elapsed time is : 0.0335 (sec) 
 --------------------------------------------------------------------------------
-ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
-Cannot calculate formula FIXC1/FIXC0
 Region MMUL_Region, Group 1: L3CACHE
 +-------------------+------------+
 |    Region Info    | HWThread 0 |
 +-------------------+------------+
-| RDTSC Runtime [s] |   0.000288 |
+| RDTSC Runtime [s] |   0.033387 |
 |     call count    |          1 |
 +-------------------+------------+
 
 +----------------------+---------+------------+
 |         Event        | Counter | HWThread 0 |
 +----------------------+---------+------------+
-| RETIRED_INSTRUCTIONS |   PMC0  |    1126624 |
-|  CPU_CLOCKS_UNHALTED |   PMC1  |     563890 |
-|  L3_ACCESS_ALL_TYPES |  CPMC0  |      23899 |
-|    L3_ACCESS_MISS    |  CPMC1  |      12143 |
+| RETIRED_INSTRUCTIONS |   PMC0  |    1126095 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |     547847 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |     212780 |
+|    L3_ACCESS_MISS    |  CPMC1  |      98761 |
 +----------------------+---------+------------+
 
 +---------------------+------------+
 |        Metric       | HWThread 0 |
 +---------------------+------------+
-| Runtime (RDTSC) [s] |     0.0003 |
+| Runtime (RDTSC) [s] |     0.0334 |
 |         CPI         |          0 |
-|   L3 request rate   |     0.0212 |
-|     L3 miss rate    |     0.0108 |
-|    L3 miss ratio    |     0.5081 |
+|   L3 request rate   |     0.1890 |
+|     L3 miss rate    |     0.0877 |
+|    L3 miss ratio    |     0.4641 |
 +---------------------+------------+
 
-likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-blas -N 512
 --------------------------------------------------------------------------------
 CPU name:	AMD EPYC 7763 64-Core Processor                
 CPU type:	AMD K19 (Zen3) architecture
@@ -51,23 +47,21 @@ Hello world, I'm thread 0 out of 1 total threads.
 Working on problem size N=512 
  Elapsed time is : 0.0059 (sec) 
 --------------------------------------------------------------------------------
-ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
-Cannot calculate formula FIXC1/FIXC0
 Region MMUL_Region, Group 1: L3CACHE
 +-------------------+------------+
 |    Region Info    | HWThread 0 |
 +-------------------+------------+
-| RDTSC Runtime [s] |   0.005792 |
+| RDTSC Runtime [s] |   0.005834 |
 |     call count    |          1 |
 +-------------------+------------+
 
 +----------------------+---------+------------+
 |         Event        | Counter | HWThread 0 |
 +----------------------+---------+------------+
-| RETIRED_INSTRUCTIONS |   PMC0  |   63894060 |
-|  CPU_CLOCKS_UNHALTED |   PMC1  |   18642690 |
-|  L3_ACCESS_ALL_TYPES |  CPMC0  |     836272 |
-|    L3_ACCESS_MISS    |  CPMC1  |      33858 |
+| RETIRED_INSTRUCTIONS |   PMC0  |   63893530 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  |   18929340 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |     979934 |
+|    L3_ACCESS_MISS    |  CPMC1  |      29323 |
 +----------------------+---------+------------+
 
 +---------------------+------------+
@@ -75,12 +69,11 @@ Region MMUL_Region, Group 1: L3CACHE
 +---------------------+------------+
 | Runtime (RDTSC) [s] |     0.0058 |
 |         CPI         |          0 |
-|   L3 request rate   |     0.0131 |
+|   L3 request rate   |     0.0153 |
 |     L3 miss rate    |     0.0005 |
-|    L3 miss ratio    |     0.0405 |
+|    L3 miss ratio    |     0.0299 |
 +---------------------+------------+
 
-likwid-perfctr -m -g L3CACHE -C N:0-0 ./benchmark-blas -N 2048
 --------------------------------------------------------------------------------
 CPU name:	AMD EPYC 7763 64-Core Processor                
 CPU type:	AMD K19 (Zen3) architecture
@@ -90,15 +83,13 @@ Description:	Reference dgemm.
 
 Hello world, I'm thread 0 out of 1 total threads. 
 Working on problem size N=2048 
- Elapsed time is : 0.3329 (sec) 
+ Elapsed time is : 0.3311 (sec) 
 --------------------------------------------------------------------------------
-ERROR - [/global/u2/w/wes/src/likwid-5.4.1/src/perfmon.c:perfmon_getMetricOfRegionThread:4038] Success.
-Cannot calculate formula FIXC1/FIXC0
 Region MMUL_Region, Group 1: L3CACHE
 +-------------------+------------+
 |    Region Info    | HWThread 0 |
 +-------------------+------------+
-| RDTSC Runtime [s] |   0.332768 |
+| RDTSC Runtime [s] |   0.330904 |
 |     call count    |          1 |
 +-------------------+------------+
 
@@ -106,18 +97,18 @@ Region MMUL_Region, Group 1: L3CACHE
 |         Event        | Counter | HWThread 0 |
 +----------------------+---------+------------+
 | RETIRED_INSTRUCTIONS |   PMC0  | 4041862000 |
-|  CPU_CLOCKS_UNHALTED |   PMC1  | 1162719000 |
-|  L3_ACCESS_ALL_TYPES |  CPMC0  |   57509890 |
-|    L3_ACCESS_MISS    |  CPMC1  |    7028392 |
+|  CPU_CLOCKS_UNHALTED |   PMC1  | 1157876000 |
+|  L3_ACCESS_ALL_TYPES |  CPMC0  |   50090350 |
+|    L3_ACCESS_MISS    |  CPMC1  |    7112898 |
 +----------------------+---------+------------+
 
 +---------------------+------------+
 |        Metric       | HWThread 0 |
 +---------------------+------------+
-| Runtime (RDTSC) [s] |     0.3328 |
+| Runtime (RDTSC) [s] |     0.3309 |
 |         CPI         |          0 |
-|   L3 request rate   |     0.0142 |
-|     L3 miss rate    |     0.0017 |
-|    L3 miss ratio    |     0.1222 |
+|   L3 request rate   |     0.0124 |
+|     L3 miss rate    |     0.0018 |
+|    L3 miss ratio    |     0.1420 |
 +---------------------+------------+
 
