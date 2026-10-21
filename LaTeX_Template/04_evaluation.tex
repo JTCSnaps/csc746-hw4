@@ -59,10 +59,13 @@ The lower overall speedup for the blocked implementation can be attributed to th
 
 \subsection{Comparison of CBLAS, BasicMM-omp, and BMMCO-omp}
 
+To compare the L2 and L3 cache performance of the CBLAS library, Basic Matrix Multiplication, and Blocked Matrix Multiplication with OpenMP parallelization, we collected data on the number of cache accesses for each implementation across different problem sizes. The cache access counts were normalized by dividing the counts for Basic and Blocked implementations by the corresponding counts for CBLAS.
+
+Below in Table~\ref{tab:normalized_l2_accesses}, we present the normalized L2 cache access counts for each implementation across the problem sizes of 128, 512, and 2048.
+
 \begin{table}[H]
     \centering
-    \caption{Normalized L2 cache accesses. Each value is divided by the
-    corresponding CBLAS L2 access count for the same problem size.}
+    \caption{Normalized L2 cache accesses}
     \label{tab:normalized_l2_accesses}
     \small
     \begin{tabular}{@{}rcccc@{}}
@@ -76,11 +79,13 @@ The lower overall speedup for the blocked implementation can be attributed to th
     \end{tabular}
 \end{table}
 
+When examining the normalized L2 cache access counts, we observed that the Basic implementation had significantly higher L2 cache accesses compared to CBLAS, indicating that it may not be as efficient in utilizing the cache. The Blocked implementations, particularly with a block size of 16, showed improved cache performance, with lower normalized L2 cache accesses compared to the Basic implementation. The lower L2 cache accesses for the Blocked implementations suggest that they are more effective in leveraging the cache hierarchy, which will lead to faster runtimes.
+
+Furthermore, we also collected data on the normalized L3 cache access counts for each implementation across the same problem sizes. The results are presented in Table~\ref{tab:normalized_l3_accesses}.
+
 \begin{table}[H]
     \centering
-    \caption{Normalized L3 cache accesses. Each value is divided by the
-    corresponding CBLAS \texttt{L3\_ACCESS\_ALL\_TYPES} count for the same
-    problem size.}
+    \caption{Normalized L3 cache accesses}
     \label{tab:normalized_l3_accesses}
     \small
     \begin{tabular}{@{}rcccc@{}}
@@ -94,6 +99,39 @@ The lower overall speedup for the blocked implementation can be attributed to th
     \end{tabular}
 \end{table}
 
+The normalized L3 cache access counts reveal that the Basic implementation had significantly higher L3 cache accesses compared to CBLAS in the larger problem sizes, indicating that the algorithm is not as efficient in utilizing the cache hierarchy. Additionally, the blocked implementations demonstrated improved cache performance, with lower normalized L3 cache accesses compared to the Basic implementation, particularly in 512 and 2048 problem sizes. Last, when looking at the problem size of 128, all implementations had similar L3 cache access counts.
+
+Again, the lower L3 cache accesses for the Blocked implementations suggest that they are more effective in leveraging the cache hierarchy, which will lead to faster runtimes.
+
+\subsection{Instruction Count Analysis}
+
+Table~\ref{tab:normalized_retired_instructions} compares the serial instruction
+counts reported by the \texttt{RETIRED\_INSTRUCTIONS} counter. Each value is
+normalized by the corresponding CBLAS instruction count for the same problem
+size.
+
+\begin{table}[H]
+    \centering
+    \caption{Normalized retired instruction counts}
+    \label{tab:normalized_retired_instructions}
+    \small
+    \begin{tabular}{@{}rcccc@{}}
+        \toprule
+        Problem size & CBLAS & Basic & Blocked B4 & Blocked B16 \\
+        \midrule
+        128  & 1.000 & 9.511  & 25.853 & 11.860 \\
+        512  & 1.000 & 10.561 & 28.960 & 13.326 \\
+        2048 & 1.000 & 10.641 & 29.241 & 13.466 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+When evaluating the instruction counts, we can see that the Basic implementation had the least number of instructions retired, which is expected as it is the simplest implementation. The Blocked implementations had higher instruction counts, with the Blocked B4 implementation having the highest counts. The high instruction counts for the blocked implementations can be attributed to the additional computations when performing titled computations. This is especially relevant for the block size of 4, which has the highest instruction counts due to the increased number of iterations and computations required for smaller blocks. The Blocked B16 implementation had lower instruction counts compared to Blocked B4, indicating that larger block sizes can help reduce the number of instructions retired.
 
 \subsection{Overall findings and discussion}
 
+\begin{itemize}
+    \item When looking at both speedup charts, we can see that the Basic implementation had the highest speedup for all problem sizes, with the highest speedup observed for the largest problem size of 2048 and a concurrency of 64 threads. The Blocked implementations had lower speedup compared to the Basic implementation, with the Blocked B16 implementation having higher speedup than Blocked B4. The charts are an indication that by limiting complexity of the algorithm and focusing on parallelization, we can achieve better speedup. With those optimizations it also appears that increases in problem size is also achievable without hindering performance.
+    \item As far as caching is concerned with the L2 and L3 access, we can see consistent use of the memory system hierarchy. When we say we make use of the memory hierarchy, we mean maximizing data reuse in the L1 and L2 caches. The basic implementation fails at cache reuse and this can be evaluated by looking at the high access values for both the L2 and L3 caches. This can similarly be said for the Blocked B16 implementation. On the other end of the spectrum we can see that the Blocked B16 cache utilization is much lower across both L2 and L3 caches.
+
+\end{itemize}

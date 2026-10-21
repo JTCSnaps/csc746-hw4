@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  20 OCT 2026 17:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  20 OCT 2026 19:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -367,16 +367,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--60
  []
 
 
-Overfull \hbox (15.46854pt too wide) in paragraph at lines 68--77
+Overfull \hbox (15.46854pt too wide) in paragraph at lines 71--80
  [][] 
  []
 
 
-Overfull \hbox (15.46854pt too wide) in paragraph at lines 86--95
+Overfull \hbox (15.46854pt too wide) in paragraph at lines 91--100
  [][] 
  []
 
-) (./05_ai_usage.tex) (./00_main.bbl [3 <./images/blocked_speedup.png>])
+
+Underfull \vbox (badness 5667) has occurred while \output is active []
+
+ [3 <./images/blocked_speedup.png>]
+Underfull \hbox (badness 1681) in paragraph at lines 108--112
+\OT1/ptm/m/n/11 ported by the \OT1/pcr/m/n/11 RETIRED_INSTRUCTIONS \OT1/ptm/m/n/11 counter.
+ []
+
+
+Overfull \hbox (10.46854pt too wide) in paragraph at lines 118--127
+ [][] 
+ []
+
+) (./05_ai_usage.tex [4]) (./00_main.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -388,7 +401,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4
+[5
 
 ] (./00_main.aux)
  ***********
@@ -397,18 +410,18 @@ L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 6805 strings out of 467525
- 101240 string characters out of 5418982
- 963341 words of memory out of 5000000
+ 6803 strings out of 467525
+ 101250 string characters out of 5418982
+ 963364 words of memory out of 5000000
  35621 multiletter control sequences out of 15000+600000
- 667945 words of font info for 120 fonts, out of 8000000 for 9000
+ 667429 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,8n,79p,1042b,1699s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 00_main.pdf (4 pages, 324430 bytes).
+Output written on 00_main.pdf (5 pages, 328155 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 76 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
