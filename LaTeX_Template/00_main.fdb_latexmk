@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex 00_main"] 1792548030.02452 "00_main.aux" "00_main.bbl" "00_main" 1792548760.15969 0
+["bibtex 00_main"] 1792551534.18544 "00_main.aux" "00_main.bbl" "00_main" 1792551779.07113 0
   "./abbrv-doi.bst" 1792527516.70284 25959 663f3219541050a59ab672891be08502 ""
-  "./template.bib" 1792527516.70316 971 6d1c75fda7d922dbe5c98c925cba7f1d ""
-  "00_main.aux" 1792548759.98245 3459 e610f82078686948e0f407bcfa451541 "pdflatex"
+  "./template.bib" 1792551333.53563 544 cc67b19e162f3dac956bdc8948bd083e ""
+  "00_main.aux" 1792551778.86087 3547 d342941d1e98c4acb83292a4e13c5ea3 "pdflatex"
   (generated)
   "00_main.bbl"
   "00_main.blg"
   (rewritten before read)
-["pdflatex"] 1792548759.34635 "/Users/jacobcordano/Documents/CSC746 Homework/csc746-hw4/LaTeX_Template/00_main.tex" "00_main.pdf" "00_main" 1792548760.1598 0
-  "/Users/jacobcordano/Documents/CSC746 Homework/csc746-hw4/LaTeX_Template/00_main.tex" 1792548759.19196 3249 b22b88b78fa1fe4327522d805f4bf53f ""
+["pdflatex"] 1792551778.18512 "/Users/jacobcordano/Documents/CSC746 Homework/csc746-hw4/LaTeX_Template/00_main.tex" "00_main.pdf" "00_main" 1792551779.07125 0
+  "/Users/jacobcordano/Documents/CSC746 Homework/csc746-hw4/LaTeX_Template/00_main.tex" 1792551682.97859 4031 da97078038bbdccc88d0ec96d59cba57 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -96,13 +96,13 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1789871023 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "00_main.aux" 1792548759.98245 3459 e610f82078686948e0f407bcfa451541 "pdflatex"
-  "00_main.bbl" 1792548030.10037 492 a4c5b0bd6549cfe8f5f6ba1d3895dba6 "bibtex 00_main"
-  "00_main.tex" 1792548759.19196 3249 b22b88b78fa1fe4327522d805f4bf53f ""
-  "01_introduction.tex" 1792527572.1227 1976 39fb12f88e8dddd7550b6315d157b839 ""
+  "00_main.aux" 1792551778.86087 3547 d342941d1e98c4acb83292a4e13c5ea3 "pdflatex"
+  "00_main.bbl" 1792551534.27318 373 fe556a7060349f2e0e273e97669ae246 "bibtex 00_main"
+  "00_main.tex" 1792551682.97859 4031 da97078038bbdccc88d0ec96d59cba57 ""
+  "01_introduction.tex" 1792550822.84359 3071 54dd5a0c43a42dc3debd3f3e28ad5935 ""
   "03_implementation.tex" 1792539454.14844 3344 b4a273c1347e5e8f31a56fca3f2892f5 ""
-  "04_evaluation.tex" 1792547903.27254 12259 a5706aeac5004a512e1b807fdf66b1b6 ""
-  "05_ai_usage.tex" 1792548037.48502 772 336c755649f5a3b0e27cf5b9e47bd1c2 ""
+  "04_evaluation.tex" 1792551777.91989 12463 19af17501a2499b507c0e2c80bde27a7 ""
+  "05_ai_usage.tex" 1792551599.6143 771 bd44f4f7ad025ce91dc6c190883d99c4 ""
   "IEEEtran.cls" 1792527516.70143 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
   "images/basic_speedup.png" 1792535076.8838 117990 49e0bb49f62b4dd75a5335f409b70d7a ""
   "images/blocked_speedup.png" 1792535076.88411 124957 a5e6ec1f1d00a35b7e87fee4d2e57920 ""

@@ -59,7 +59,7 @@
 
 %% Paper title.
 
-\title{Vector Matrix Multiplication \& Optimizations \\Assignment \#3, CSC 746, Fall 2026}
+\title{Parallel MMUL \& LIKWID Performance Counters \\Assignment \#4, CSC 746, Fall 2026}
 
 % IEEEtran way of specifying authors
 \author{
@@ -74,7 +74,7 @@ Email: jcordano1@sfsu.edu}
 
 %% Abstract section.
 \begin{abstract}
-
+Matrix multiplication is computationally expensive and sensitive to parallel scalability and memory locality. We implemented two matrix multiplication algorithms with OpenMP, one of which is a basic row parallel triple nested loop and another with cache blocking and thread local tile copies. Both algorithms were evaluated on the NERSC Perlmutter with block sizes of 128, 512, and 2048 using threads between 1 and 64, and measured with the Like I Know What I Knew What I'm Doing (LIKWID) API for runtime and cache utilization. At N = 2048, the basic and blocked implementations achieved 51x and 40x speedup at 64 threads, while the blocked implementation ran at 6x faster. The blocked algorithm also had significantly reduced L2 and L3 accesses relative to the basic implementation.
 \end{abstract}
 
 %% Abstract—Please take a few moments and try to compose an abstract for your homework writeup. It should contain these ideas: what was the problem being studied, what was the approach (what did you implement), what are the results. The abstract should describe the basic message of the paper, including: the problem, why your solution should be of interest, some notion that your solution is effective, and a teaser about how it has been evaluated. Cover all of this using between 75 and 150 words. Thus, the abstract is the hardest part to write. Sometimes I try to write it first, but the final version is usually composed of items drawn from the introduction, and then condensed, as the last step of writing the paper.

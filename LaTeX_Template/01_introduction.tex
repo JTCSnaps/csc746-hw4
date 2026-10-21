@@ -1,6 +1,10 @@
 \section{Introduction}
 
+Matrix multiplication computation with performance that is effective with both parallel execution and has efficient use of memory hierarchy is crucial. This study examines hoe OpenMP parallelism and cache blocking affect the runtime, scalability, and cache behavior of matrix multiplication.
 
+We implemented a triple nested loop that parallelizes independent output rows and a blocked implementation that operates on thread local matrix tiles. Both implementations compute C = C + AB and use LIKWID instrumentation to isolate the multiplication region. These were evaluated on NERSC Perlmutter using matrix sizes of 128, 512, and 2048, with thread counts of between 1 and 64, differentiating block sizes, and referenced CBLAS for cache and instruction count comparisons.
+
+These implementations scaled most effectively for the largest problem size, where the basic algorithm reached a 51x speedup and the blocked implementation reaching 40x at a thread count of 64. LIKWID showed that blocking with a size of 16 reduced the L2 and L3 cache accesses significantly compared to the basic algorithm. 
 
 \begin{comment}
 %% the material that follows is from the generic tech paper skeleton project

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  20 OCT 2026 19:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  20 OCT 2026 20:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -349,14 +349,13 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [1{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
-]) (./04_evaluation.tex
-<images/basic_speedup.png, id=15, 462.528pt x 346.896pt>
+]) (./04_evaluation.tex [2]
+<images/basic_speedup.png, id=18, 462.528pt x 346.896pt>
 File: images/basic_speedup.png Graphic file (type png)
 <use images/basic_speedup.png>
 Package pdftex.def Info: images/basic_speedup.png  used on input line 32.
 (pdftex.def)             Requested size: 189.0pt x 141.75188pt.
- [2 <./images/basic_speedup.png>]
-<images/blocked_speedup.png, id=21, 462.528pt x 346.896pt>
+<images/blocked_speedup.png, id=20, 462.528pt x 346.896pt>
 File: images/blocked_speedup.png Graphic file (type png)
 <use images/blocked_speedup.png>
 Package pdftex.def Info: images/blocked_speedup.png  used on input line 51.
@@ -366,30 +365,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--60
  \OT1/ptm/m/it/11 E. Com-par-i-son of CBLAS, BasicMM-omp, and
  []
 
-
-Overfull \hbox (15.46854pt too wide) in paragraph at lines 71--80
- [][] 
- []
-
-
-Overfull \hbox (15.46854pt too wide) in paragraph at lines 91--100
- [][] 
- []
-
-
-Underfull \vbox (badness 5667) has occurred while \output is active []
-
- [3 <./images/blocked_speedup.png>]
-Underfull \hbox (badness 1681) in paragraph at lines 108--112
+[3 <./images/basic_speedup.png> <./images/blocked_speedup.png>]
+Underfull \hbox (badness 1681) in paragraph at lines 112--116
 \OT1/ptm/m/n/11 ported by the \OT1/pcr/m/n/11 RETIRED_INSTRUCTIONS \OT1/ptm/m/n/11 counter.
  []
 
 
-Overfull \hbox (10.46854pt too wide) in paragraph at lines 118--127
+Overfull \hbox (10.46854pt too wide) in paragraph at lines 122--131
  [][] 
  []
 
-) (./05_ai_usage.tex [4]) (./00_main.bbl)
+[4]) (./05_ai_usage.tex) (./00_main.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -410,15 +396,15 @@ L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 6803 strings out of 467525
- 101250 string characters out of 5418982
- 963364 words of memory out of 5000000
- 35621 multiletter control sequences out of 15000+600000
+ 6801 strings out of 467525
+ 101217 string characters out of 5418982
+ 860383 words of memory out of 5000000
+ 35619 multiletter control sequences out of 15000+600000
  667429 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,8n,79p,1042b,1699s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,9n,79p,1042b,1814s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 00_main.pdf (5 pages, 328155 bytes).
+Output written on 00_main.pdf (5 pages, 342352 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream
