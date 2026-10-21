@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{bethel_lecture_08}
+{Bethel, E. Wes}.
+\newblock Csc 746 f26 lecture 08 -- vectorization and ilp, Sep 2026.
+
+\bibitem{bethel_lecture_10}
+{Bethel, E. Wes}.
+\newblock Csc 746 f26 lecture 10 -- parallel perf measures, smp programming,
+  Sep 2026.
+
+\bibitem{Lindevs_2025}
+{Lindevs}, May 2025.
+
+\bibitem{nersc}
+{Nersc}.
+\newblock Perlmutter architecture.
+
+\bibitem{openblas_faq_2026}
+{OpenBLAS Developers}.
+\newblock Openblas faq, Jul 2026.
+
+\end{thebibliography}

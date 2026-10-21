@@ -1,0 +1,56 @@
+
+\section{Implementation}
+\label{sec:implementation}
+Here, we describe the implementation of the vector matrix multiplication algorithms (VMM) that we have developed and evaluated in this study. We first implement a basic matrix multiplication algorithm that has been parallelized using OpenMP. We then implement a blocked matrix multiplication algorithm that has also been parallelized using OpenMP. 
+
+\subsection{DGEMM Basic Open MP Implementation}
+
+The basic DGEMM implementation performs square matrix--matrix multiplication, computing \(C = C + AB\). The matrices are stored in row-major order. OpenMP parallelizes the outer loop over the rows of \(A\), allowing different threads to update distinct rows of \(C\) concurrently. For each output element \(C_{ij}\), the innermost loop computes the dot product of row \(i\) of \(A\) and column \(j\) of \(B\), adding the result to the existing value of \(C_{ij}\). Because each OpenMP iteration updates a distinct row of \(C\), no synchronization is required for the matrix updates. The LIKWID markers enclose the parallel computation for performance measurement.
+
+
+\begin{lstlisting}[caption={Basic DGEMV OMP implementation}, label={lst:basic_dgemv}, name=dgemm_basic_omp, style=mystyle,language=C++]
+void square_dgemm(int n, double *A, double *B, double *C){
+    #pragma omp parallel
+    {
+        LIKWID_MARKER_START(MY_MARKER_REGION_NAME);
+
+#pragma omp for
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                double sum = C[i * n + j];
+                for (int k = 0; k < n; k++)
+                {
+                    sum += A[i * n + k] * B[k * n + j];
+                }
+                C[i * n + j] = sum;
+            }
+        }
+
+        LIKWID_MARKER_STOP(MY_MARKER_REGION_NAME);
+    }
+}
+\end{lstlisting}
+
+\subsection{DGEMM Blocked Open MP Implementation}
+
+The blocked DGEMM computes \(C = C + AB\) for \(n \times n\) matrices \(A\), \(B\), and \(C\), all stored in row-major order. The matrices are divided into square tiles with dimensions \texttt{block\_size} by \texttt{block\_size}. Each tile of \(C\) is copied into a thread-local buffer and updated using the corresponding tiles of \(A\) and \(B\), which are also copied into thread-local buffers. This copy optimization improves spatial and temporal locality by allowing the block multiplication to operate on contiguous data that can be reused from the cache. OpenMP parallelizes the outer loop over block rows, allowing threads to update distinct regions of \(C\) concurrently without requiring synchronization. After all contributing block products have been accumulated, the updated tile is copied back into \(C\). The LIKWID markers enclose the parallel computation for performance measurement. 
+
+\begin{lstlisting}[caption={Blocked DGEMV OMP pseudocode implementation}, label={lst:blocked_dgemv}, name=dgemm_blocked_omp, style=mystyle,language=C++]
+PROCEDURE Blocked_DGEMM(n, size, A, B, C)
+    blocks = n / size
+
+    PARALLEL FOR each block (i, j)
+        Copy C(i,j) to local C_block
+
+        FOR k = 0 TO blocks - 1
+            Copy A(i,k) to local A_block
+            Copy B(k,j) to local B_block
+            C_block = C_block + A_block * B_block
+        END FOR
+
+        Copy C_block back to C(i,j)
+    END PARALLEL FOR
+END PROCEDURE
+\end{lstlisting}
